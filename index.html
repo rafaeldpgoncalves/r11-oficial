@@ -16,205 +16,330 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: var(--dark); color: var(--white); line-height: 1.6; }
+        body { background: var(--dark); color: var(--white); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* Layout com Menu Lateral para Apresentação */
+        .wrapper { display: flex; flex: 1; }
+        aside { 
+            width: 280px; background: var(--darker); border-right: 1px solid #222; 
+            padding: 2rem 1rem; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+        }
+        main { flex: 1; padding-bottom: 3rem; }
+
+        .sidebar-logo { width: 100px; display: block; margin: 0 auto 1.5rem auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        .menu-title { font-size: 0.85rem; text-transform: uppercase; color: var(--primary); margin: 1.5rem 0 0.5rem 0; letter-spacing: 1px; font-weight: bold; }
+        .menu-list { list-style: none; }
+        .menu-list li { margin-bottom: 0.5rem; }
+        .menu-list a { color: var(--gray); text-decoration: none; display: block; padding: 0.4rem 0.8rem; border-radius: 4px; transition: 0.2s; font-size: 0.95rem; }
+        .menu-list a:hover { background: #2a2a2a; color: var(--white); }
 
         /* Header & Hero */
         header {
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('assets/praca.jpg');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
+            background-size: cover; background-position: center;
+            color: var(--white); padding: 3rem 2rem; text-align: center;
             border-bottom: 5px solid var(--primary);
         }
-        .logo-img { width: 140px; margin-bottom: 1rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-        header p { font-size: 1.2rem; color: var(--gray); }
+        .header-logo { width: 120px; margin-bottom: 1rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
+        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
+        header p { font-size: 1.1rem; color: var(--gray); }
 
         /* Sections */
-        section { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; }
-        h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--white); border-left: 5px solid var(--primary); padding-left: 15px; }
+        section { max-width: 950px; margin: 2.5rem auto; padding: 0 1.5rem; }
+        h2 { font-size: 1.8rem; margin-bottom: 1.2rem; color: var(--white); border-left: 5px solid var(--primary); padding-left: 12px; }
 
         /* Cards & Grids */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #2a2a2a; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+        .card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #2a2a2a; }
 
-        /* Ações e Botões */
-        .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
+        /* Botões */
+        .btn-container { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
         .btn { 
-            background: var(--primary); color: var(--white); padding: 0.8rem 1.5rem; 
+            background: var(--primary); color: var(--white); padding: 0.7rem 1.2rem; 
             border-radius: 5px; text-decoration: none; font-weight: bold; 
-            transition: opacity 0.2s; display: inline-block; border: none; cursor: pointer;
+            transition: opacity 0.2s; display: inline-block; border: none; cursor: pointer; font-size: 0.9rem;
         }
         .btn:hover { opacity: 0.9; }
         .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
         .btn-outline:hover { background: var(--white); color: var(--dark); }
         .btn-support { background: #ffb703; color: #000; }
 
-        /* Mural e Vagas Cards */
-        .mural-card, .job-card, .donation-card { background: var(--card-bg); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; border: 1px solid #2a2a2a; }
-        .badge { display: inline-block; padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; background: #333; color: #fff; margin-bottom: 0.5rem; }
+        /* Badges & Cards Específicos */
+        .badge { display: inline-block; padding: 0.2rem 0.6rem; font-size: 0.75rem; border-radius: 4px; background: #333; color: #fff; margin-bottom: 0.4rem; }
+        .mural-card, .job-card, .donation-card, .commerce-card, .match-card { background: var(--card-bg); padding: 1.2rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; border: 1px solid #2a2a2a; }
         
-        form input, form textarea { width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #2a2a2a; border: 1px solid #444; color: var(--white); border-radius: 4px; }
+        form input, form textarea { width: 100%; padding: 0.7rem; margin-bottom: 0.8rem; background: #2a2a2a; border: 1px solid #444; color: var(--white); border-radius: 4px; }
         form input::placeholder, form textarea::placeholder { color: #888; }
 
         /* Feed / Post Simulado */
         .post-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin-top: 1.5rem; border: 1px solid #2a2a2a; }
-        .post-img { width: 100%; max-height: 400px; object-fit: cover; }
-        .post-content { padding: 1.5rem; }
+        .post-img { width: 100%; max-height: 350px; object-fit: cover; }
+        .post-content { padding: 1.2rem; }
 
         /* WhatsApp Flutuante */
         .whatsapp-btn { 
-            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; 
-            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; gap: 10px;
+            position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white; 
+            padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;
         }
 
-        footer { background: var(--darker); color: var(--gray); text-align: center; padding: 3rem 1.5rem; margin-top: 4rem; border-top: 1px solid #222; }
-        .social-links { margin-bottom: 1rem; font-size: 1.2rem; }
-        .social-links a { color: var(--white); margin: 0 10px; text-decoration: none; }
+        footer { background: var(--darker); color: var(--gray); text-align: center; padding: 2rem 1.5rem; border-top: 1px solid #222; }
+        .social-links { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .social-links a { color: var(--white); margin: 0 8px; text-decoration: none; }
 
+        @media(max-width: 900px) {
+            .wrapper { flex-direction: column; }
+            aside { width: 100%; height: auto; position: static; }
+        }
         @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="assets/logo-r11.png" alt="Logotipo R11" class="logo-img">
-        <h1>R11 – A Força da União</h1>
-        <p>Transformando espaços e cuidando de pessoas em São Leopoldo</p>
-        <div class="btn-container">
-            <a href="tel:5551991795608" class="btn btn-outline">📞 (51) 99179-5608</a>
-            <a href="https://wa.me/5551991795608?text=Quero%20apoiar%20o%20projeto%20R11" class="btn btn-support" target="_blank">⭐ Apoie o Projeto R11</a>
-            <a href="#parceiro" class="btn btn-outline">Quero Ser Parceiro R11</a>
-            <a href="#vagas" class="btn btn-outline">Vagas e Currículos</a>
-        </div>
-    </header>
+    <div class="wrapper">
+        <!-- Menu Lateral para Apresentação -->
+        <aside>
+            <img src="assets/logo-r11.png" alt="R11" class="sidebar-logo">
+            <h3 style="text-align:center; font-size: 1.1rem; margin-bottom: 1rem; color: var(--white);">R11 Painel</h3>
+            
+            <p class="menu-title">Navegação</p>
+            <ul class="menu-list">
+                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="#mural">Mural de Ações</a></li>
+                <li><a href="#comercio">Comércio Local</a></li>
+                <li><a href="#varzea">Campeonato da Várzea</a></li>
+                <li><a href="#feira">Feira Orgânica</a></li>
+                <li><a href="#doacoes">Doações Comunitárias</a></li>
+                <li><a href="#vagas">Vagas e Empregos</a></li>
+                <li><a href="#parceiro">Seja Parceiro</a></li>
+            </ul>
 
-    <!-- Quem Somos & Ações -->
-    <section>
-        <h2>Quem Somos</h2>
-        <div class="grid-2">
-            <div class="card">
-                <p>A R11 representa a força coletiva em sua forma mais ativa. Não somos apenas um grupo; somos uma força viva movida pelo compromisso com o bem-estar de São Leopoldo. Atuamos de ponta a ponta na zeladoria urbana e no apoio social.</p>
-            </div>
-            <div class="card" style="border-left: 5px solid var(--primary);">
-                <h3>Nossa Missão</h3>
-                <p>Revitalizar praças, limpar ruas, cuidar de terrenos e estender a mão através de campanhas solidárias que devolvem a dignidade e a esperança à comunidade.</p>
-            </div>
-        </div>
-    </section>
+            <p class="menu-title">Acesso Rápido</p>
+            <ul class="menu-list">
+                <li><a href="tel:5551991795608">📞 (51) 99179-5608</a></li>
+                <li><a href="https://wa.me/5551991795608" target="_blank">💬 WhatsApp Direto</a></li>
+            </ul>
+        </aside>
 
-    <!-- Mural com Ações em Andamento -->
-    <section>
-        <h2>Mural de Ações e Próximos Eventos</h2>
-        <div class="grid-3">
-            <div class="mural-card">
-                <span class="badge" style="background: #e63946;">Em Andamento</span>
-                <h3>Limpeza e Zeladoria - Praça Rio dos Sinos</h3>
-                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Mutirão de roçada, pintura de meios-fios e recolhimento de resíduos.</p>
-                <p style="font-weight: bold; font-size: 0.85rem; color: var(--white);">📅 Data: 15/08/2026</p>
-            </div>
-            <div class="mural-card">
-                <span class="badge" style="background: #ffb703; color: #000;">Planejado</span>
-                <h3>Revitalização Espaço Público</h3>
-                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Ação social de pintura de bancos e plantio de mudas na praça central.</p>
-                <p style="font-weight: bold; font-size: 0.85rem; color: var(--white);">📅 Data: 22/08/2026</p>
-            </div>
-            <div class="mural-card">
-                <span class="badge" style="background: #25d366;">Confirmado</span>
-                <h3>Campanha Solidária de Inverno</h3>
-                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Arrecadação e distribuição de agasalhos e alimentos para famílias carentes.</p>
-                <p style="font-weight: bold; font-size: 0.85rem; color: var(--white);">📅 Data: 30/08/2026</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Doações para a Comunidade -->
-    <section>
-        <h2>Banco de Doações Comunitárias</h2>
-        <p style="color: var(--gray); margin-bottom: 1.5rem;">Itens essenciais que estamos captando ou disponibilizando para auxiliar quem mais precisa na comunidade.</p>
-        <div class="grid-2">
-            <div class="donation-card">
-                <span class="badge">Necessidade Urgente</span>
-                <h3>Cama Hospitalar / Cadeira de Rodas</h3>
-                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Buscamos doações ou empréstimo temporário de equipamentos médicos para famílias em reabilitação.</p>
-                <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação%20médica" class="btn" style="padding: 0.4rem 1rem; font-size: 0.85rem; margin-top: 0.5rem;" target="_blank">Doar / Informar</a>
-            </div>
-            <div class="donation-card">
-                <span class="badge" style="background: #25d366;">Disponível / Captação</span>
-                <h3>Kits de Alimentos e Brinquedos</h3>
-                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Campanhas contínuas de apoio alimentar e estruturação de datas comemorativas.</p>
-                <a href="https://wa.me/5551991795608?text=Quero%20contribuir%20com%20cestas" class="btn" style="padding: 0.4rem 1rem; font-size: 0.85rem; margin-top: 0.5rem;" target="_blank">Contribuir</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Post / Feed (Ação Voluntária) -->
-    <section>
-        <h2>Ações em Destaque (Feed R11)</h2>
-        <div class="post-card">
-            <img src="assets/acao-voluntaria.jpg" alt="Voluntário revitalizando área em São Leopoldo" class="post-img">
-            <div class="post-content">
-                <h3 style="margin-bottom: 0.5rem; color: var(--primary);">Mão na Massa pela nossa Cidade! ⚡</h3>
-                <p style="color: var(--gray);">Nossa equipe atuando diretamente na revitalização e pintura de vias públicas em São Leopoldo. Cada metro cuidado é um reflexo do nosso compromisso com o futuro da nossa comunidade.</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--primary);">#R11 #JuntosSomosMais #ZeladoriaUrbana #SaoLeopoldo</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vagas de Emprego e Envio de Currículos -->
-    <section id="vagas">
-        <h2>Oportunidades e Banco de Talentos</h2>
-        <div class="grid-2">
-            <div>
-                <h3 style="margin-bottom: 1rem;">Vagas Abertas</h3>
-                <div class="job-card">
-                    <h4>Roçador / Zelador Urbano</h4>
-                    <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Requisitos: Residir próximo ao bairro Rio dos Sinos e compromisso com o trabalho.</p>
-                    <span style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">Status: Vaga Aberta</span>
+        <!-- Conteúdo Principal -->
+        <main>
+            <header>
+                <img src="assets/logo-r11.png" alt="Logotipo R11" class="header-logo">
+                <h1>R11 – A Força da União</h1>
+                <p>Transformando espaços, valorizando o comércio e cuidando de pessoas</p>
+                <div class="btn-container">
+                    <a href="https://wa.me/5551991795608?text=Quero%20apoiar%20o%20projeto%20R11" class="btn btn-support" target="_blank">⭐ Apoie o Projeto R11</a>
+                    <a href="#parceiro" class="btn btn-outline">Quero Ser Parceiro R11</a>
                 </div>
-            </div>
-            <div class="card">
-                <h3 style="margin-bottom: 1rem;">Envie seu Currículo</h3>
-                <form onsubmit="event.preventDefault(); alert('Currículo simulado enviado com sucesso!');">
-                    <input type="text" placeholder="Seu Nome Completo" required>
-                    <input type="text" placeholder="Área / Cargo Desejado" required>
-                    <textarea rows="3" placeholder="Fale um pouco sobre sua experiência..." required></textarea>
-                    <button type="submit" class="btn" style="width: 100%;">Enviar Currículo</button>
-                </form>
-            </div>
-        </div>
-    </section>
+            </header>
 
-    <!-- Seção de Empresas Parceiras -->
-    <section id="parceiro">
-        <h2>Empresas Parceiras</h2>
-        <div class="card" style="text-align: center; padding: 3rem;">
-            <p style="margin-bottom: 1.5rem; color: var(--gray);">Empresas que acreditam e investem na força da união para transformar São Leopoldo.</p>
-            <div style="font-size: 1.5rem; font-weight: bold; color: var(--white); background: #2a2a2a; display: inline-block; padding: 1rem 3rem; border-radius: 6px; border: 1px dashed #555;">
-                [ Logo da Empresa Parceira ]
-            </div>
-            <div style="margin-top: 2rem;">
-                <a href="https://wa.me/5551991795608?text=Quero%20ser%20parceiro%20da%20R11" class="btn" target="_blank">Quero Ser Parceiro R11</a>
-            </div>
-        </div>
-    </section>
+            <!-- Quem Somos -->
+            <section id="quem-somos">
+                <h2>Quem Somos</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <p>A R11 representa a força coletiva em sua forma mais ativa. Não somos apenas um grupo; somos uma força viva movida pelo compromisso com o bem-estar de São Leopoldo. Atuamos de ponta a ponta na zeladoria urbana e apoio social.</p>
+                    </div>
+                    <div class="card" style="border-left: 5px solid var(--primary);">
+                        <h3>Nossa Missão</h3>
+                        <p>Revitalizar praças, limpar ruas, apoiar o comércio local, incentivar o esporte comunitário e estender a mão a quem mais precisa.</p>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Botão Fixo WhatsApp -->
-    <a href="https://wa.me/5551991795608" class="whatsapp-btn" target="_blank">
-        💬 WhatsApp R11
-    </a>
+            <!-- Mural de Ações -->
+            <section id="mural">
+                <h2>Mural de Ações e Próximos Eventos</h2>
+                <div class="grid-3">
+                    <div class="mural-card">
+                        <span class="badge" style="background: #e63946;">Em Andamento</span>
+                        <h3>Limpeza Praça Rio dos Sinos</h3>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Mutirão de roçada e pintura de meios-fios.</p>
+                        <p style="font-weight: bold; font-size: 0.8rem; color: var(--white);">📅 Data: 15/08/2026</p>
+                    </div>
+                    <div class="mural-card">
+                        <span class="badge" style="background: #ffb703; color: #000;">Planejado</span>
+                        <h3>Revitalização Espaço Público</h3>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Pintura de bancos e plantio de mudas.</p>
+                        <p style="font-weight: bold; font-size: 0.8rem; color: var(--white);">📅 Data: 22/08/2026</p>
+                    </div>
+                    <div class="mural-card">
+                        <span class="badge" style="background: #25d366;">Confirmado</span>
+                        <h3>Campanha Solidária de Inverno</h3>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Arrecadação e distribuição de agasalhos.</p>
+                        <p style="font-weight: bold; font-size: 0.8rem; color: var(--white);">📅 Data: 30/08/2026</p>
+                    </div>
+                </div>
+            </section>
 
-    <footer>
-        <div class="social-links">
-            <a href="https://instagram.com/r11juntossomosmais" target="_blank">Instagram</a> | 
-            <a href="https://facebook.com" target="_blank">Facebook</a>
-        </div>
-        <p>&copy; 2026 R11 - Juntos Somos + | Rua Fernando Ferrari, 70, São Leopoldo</p>
-    </footer>
+            <!-- Divulgação do Comércio Local (Encartes e Logos) -->
+            <section id="comercio">
+                <h2>Vitrine do Comércio Local</h2>
+                <p style="color: var(--gray); margin-bottom: 1.2rem; font-size: 0.95rem;">Apoiamos e fortalecemos os pequenos negócios e empreendedores de nossa região.</p>
+                <div class="grid-2">
+                    <!-- Fruteira -->
+                    <div class="commerce-card">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                            <img src="assets/logo-fruteira.png" alt="Logo Fruteira" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid var(--primary);">
+                            <div>
+                                <h4 style="font-size: 1rem;">Fruteira Bom Preço</h4>
+                                <span style="font-size: 0.75rem; color: var(--primary);">Parceiro R11</span>
+                            </div>
+                        </div>
+                        <img src="assets/enc-fruteira.png" alt="Encarte Fruteira" style="width: 100%; border-radius: 4px; max-height: 220px; object-fit: cover; margin-bottom: 0.8rem;">
+                        <p style="font-size: 0.85rem; color: var(--gray);">Frutas e verduras frescas direto do produtor para a sua mesa.</p>
+                    </div>
+                    <!-- Lanche -->
+                    <div class="commerce-card">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                            <img src="assets/logo-lanche.png" alt="Logo Lanche" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid var(--primary);">
+                            <div>
+                                <h4 style="font-size: 1rem;">Lanches & Cia</h4>
+                                <span style="font-size: 0.75rem; color: var(--primary);">Parceiro R11</span>
+                            </div>
+                        </div>
+                        <img src="assets/enc-lanche.png" alt="Encarte Lanche" style="width: 100%; border-radius: 4px; max-height: 220px; object-fit: cover; margin-bottom: 0.8rem;">
+                        <p style="font-size: 0.85rem; color: var(--gray);">Os melhores lanches da região com entrega rápida e preço justo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campeonato da Várzea -->
+            <section id="varzea">
+                <h2>Campeonato da Várzea R11</h2>
+                <p style="color: var(--gray); margin-bottom: 1.2rem; font-size: 0.95rem;">Acompanhe a tabela, jogos encerrados e próximas partidas do nosso torneio comunitário.</p>
+                <div class="grid-2">
+                    <div class="match-card">
+                        <span class="badge" style="background: #444;">Partidas Encerradas</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.8rem 0;">
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time1.png" alt="Time 1" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.8rem;">Leopoldense</p>
+                            </div>
+                            <span style="font-weight: bold; font-size: 1.1rem; color: var(--primary);">2 x 1</span>
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time2.png" alt="Time 2" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.8rem;">União Vila</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--gray); text-align: center;">Campo do Morro • Encerrado</p>
+                    </div>
+
+                    <div class="match-card">
+                        <span class="badge" style="background: #25d366;">Próximas Partidas</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.8rem 0;">
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time3.png" alt="Time 3" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.8rem;">Amigos F.C.</p>
+                            </div>
+                            <span style="font-weight: bold; font-size: 1rem; color: var(--white);">VS</span>
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time4.png" alt="Time 4" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.8rem;">R11 Esporte</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--primary); text-align: center; font-weight: bold;">📅 Sábado, 16:00 • Campo Municipal</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feira Orgânica e Eventos -->
+            <section id="feira">
+                <h2>Feira Orgânica Comunitária</h2>
+                <div class="card" style="border-left: 5px solid #25d366;">
+                    <span class="badge" style="background: #25d366; color: #000;">Evento Recorrente</span>
+                    <h3 style="margin: 0.5rem 0;">Alimento Saudável e Direto do Campo</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 0.8rem;">Apoie os produtores locais participando da nossa feira de produtos orgânicos frescos.</p>
+                    <p style="font-weight: bold; font-size: 0.9rem;">📍 Local: Praça Central de São Leopoldo</p>
+                    <p style="font-weight: bold; font-size: 0.9rem; color: #25d366;">⏰ Dias: Todas as Quarta-feiras e Sábados (Das 07h às 12h)</p>
+                </div>
+            </section>
+
+            <!-- Feed / Ação Voluntária -->
+            <section>
+                <h2>Ações em Destaque (Feed R11)</h2>
+                <div class="post-card">
+                    <img src="assets/acao-voluntaria.jpg" alt="Voluntário revitalizando área" class="post-img">
+                    <div class="post-content">
+                        <h3 style="margin-bottom: 0.4rem; color: var(--primary);">Mão na Massa pela nossa Cidade! ⚡</h3>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Nossa equipe atuando diretamente na revitalização e pintura de vias públicas em São Leopoldo. Cada metro cuidado é um reflexo do nosso compromisso.</p>
+                        <p style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--primary);">#R11 #JuntosSomosMais #ZeladoriaUrbana #SaoLeopoldo</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Doações Comunitárias -->
+            <section id="doacoes">
+                <h2>Banco de Doações Comunitárias</h2>
+                <div class="grid-2">
+                    <div class="donation-card">
+                        <span class="badge">Necessidade Urgente</span>
+                        <h3>Cama Hospitalar / Cadeira de Rodas</h3>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Buscamos doações ou empréstimo temporário de equipamentos médicos.</p>
+                        <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação%20médica" class="btn" style="padding: 0.3rem 0.8rem; font-size: 0.8rem; margin-top: 0.4rem;" target="_blank">Doar / Informar</a>
+                    </div>
+                    <div class="donation-card">
+                        <span class="badge" style="background: #25d366;">Disponível</span>
+                        <h3>Kits de Alimentos e Brinquedos</h3>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Campanhas contínuas de apoio alimentar e datas comemorativas.</p>
+                        <a href="https://wa.me/5551991795608?text=Quero%20contribuir%20com%20cestas" class="btn" style="padding: 0.3rem 0.8rem; font-size: 0.8rem; margin-top: 0.4rem;" target="_blank">Contribuir</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vagas de Emprego e Currículos -->
+            <section id="vagas">
+                <h2>Oportunidades e Banco de Talentos</h2>
+                <div class="grid-2">
+                    <div>
+                        <h3 style="margin-bottom: 0.8rem; font-size: 1.2rem;">Vagas Abertas</h3>
+                        <div class="job-card">
+                            <h4 style="font-size: 1rem;">Roçador / Zelador Urbano</h4>
+                            <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Requisitos: Residir próximo ao bairro Rio dos Sinos e compromisso com o trabalho.</p>
+                            <span style="color: var(--primary); font-weight: bold; font-size: 0.8rem;">Status: Vaga Aberta</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 style="margin-bottom: 0.8rem; font-size: 1.2rem;">Envie seu Currículo</h3>
+                        <form onsubmit="event.preventDefault(); alert('Currículo simulado enviado com sucesso!');">
+                            <input type="text" placeholder="Seu Nome Completo" required>
+                            <input type="text" placeholder="Área / Cargo Desejado" required>
+                            <textarea rows="2" placeholder="Fale um pouco sobre sua experiência..." required></textarea>
+                            <button type="submit" class="btn" style="width: 100%;">Enviar Currículo</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Empresas Parceiras -->
+            <section id="parceiro">
+                <h2>Empresas Parceiras</h2>
+                <div class="card" style="text-align: center; padding: 2.5rem;">
+                    <p style="margin-bottom: 1.2rem; color: var(--gray); font-size: 0.95rem;">Empresas que acreditam e investem na força da união para transformar São Leopoldo.</p>
+                    <div style="font-size: 1.2rem; font-weight: bold; color: var(--white); background: #2a2a2a; display: inline-block; padding: 0.8rem 2.5rem; border-radius: 6px; border: 1px dashed #555;">
+                        [ Logo da Empresa Parceira ]
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://wa.me/5551991795608?text=Quero%20ser%20parceiro%20da%20R11" class="btn" target="_blank">Quero Ser Parceiro R11</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Botão Fixo WhatsApp -->
+            <a href="https://wa.me/5551991795608" class="whatsapp-btn" target="_blank">
+                💬 WhatsApp R11
+            </a>
+
+            <footer>
+                <div class="social-links">
+                    <a href="https://instagram.com/r11juntossomosmais" target="_blank">Instagram</a> | 
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                </div>
+                <p>&copy; 2026 R11 - Juntos Somos + | Rua Fernando Ferrari, 70, São Leopoldo</p>
+            </footer>
+        </main>
+    </div>
 
 </body>
 </html>
