@@ -64,10 +64,11 @@
         .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
         .btn-outline:hover { background: var(--white); color: var(--dark); }
         .btn-support { background: #ffb703; color: #000; }
+        .btn-whatsapp { background: #25d366; color: #fff; display: inline-flex; align-items: center; gap: 6px; }
 
         /* Badges & Cards Específicos */
         .badge { display: inline-block; padding: 0.2rem 0.6rem; font-size: 0.75rem; border-radius: 4px; background: #333; color: #fff; margin-bottom: 0.4rem; }
-        .mural-card, .job-card, .donation-card, .commerce-card, .match-card { background: var(--card-bg); padding: 1.2rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; border: 1px solid #2a2a2a; }
+        .mural-card, .job-card, .donation-card, .commerce-card, .match-card, .pet-card, .pro-card, .service-card { background: var(--card-bg); padding: 1.2rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; border: 1px solid #2a2a2a; }
         
         form input, form textarea { width: 100%; padding: 0.7rem; margin-bottom: 0.8rem; background: #2a2a2a; border: 1px solid #444; color: var(--white); border-radius: 4px; }
         form input::placeholder, form textarea::placeholder { color: #888; }
@@ -78,7 +79,7 @@
         .post-content { padding: 1.2rem; }
 
         /* WhatsApp Flutuante */
-        .whatsapp-btn { 
+        .whatsapp-float { 
             position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white; 
             padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;
@@ -108,11 +109,13 @@
                 <li><a href="#quem-somos">Quem Somos</a></li>
                 <li><a href="#mural">Mural de Ações</a></li>
                 <li><a href="#comercio">Comércio Local</a></li>
+                <li><a href="#profissionais">Profissionais & Serviços</a></li>
+                <li><a href="#pets">Animais Perdidos</a></li>
                 <li><a href="#varzea">Campeonato da Várzea</a></li>
                 <li><a href="#feira">Feira Orgânica</a></li>
                 <li><a href="#doacoes">Doações Comunitárias</a></li>
                 <li><a href="#vagas">Vagas e Empregos</a></li>
-                <li><a href="#parceiro">Seja Parceiro</a></li>
+                <li><a href="#parceiros">Empresas Parceiras</a></li>
             </ul>
 
             <p class="menu-title">Acesso Rápido</p>
@@ -130,7 +133,7 @@
                 <p>Transformando espaços, valorizando o comércio e cuidando de pessoas</p>
                 <div class="btn-container">
                     <a href="https://wa.me/5551991795608?text=Quero%20apoiar%20o%20projeto%20R11" class="btn btn-support" target="_blank">⭐ Apoie o Projeto R11</a>
-                    <a href="#parceiro" class="btn btn-outline">Quero Ser Parceiro R11</a>
+                    <a href="#parceiros" class="btn btn-outline">Quero Ser Parceiro R11</a>
                 </div>
             </header>
 
@@ -173,7 +176,7 @@
                 </div>
             </section>
 
-            <!-- Divulgação do Comércio Local (Encartes e Logos) -->
+            <!-- Divulgação do Comércio Local (Com horário, contato e WhatsApp) -->
             <section id="comercio">
                 <h2>Vitrine do Comércio Local</h2>
                 <p style="color: var(--gray); margin-bottom: 1.2rem; font-size: 0.95rem;">Apoiamos e fortalecemos os pequenos negócios e empreendedores de nossa região.</p>
@@ -187,8 +190,11 @@
                                 <span style="font-size: 0.75rem; color: var(--primary);">Parceiro R11</span>
                             </div>
                         </div>
-                        <img src="assets/enc-fruteira.jpg" alt="Encarte Fruteira" style="width: 100%; border-radius: 4px; max-height: 220px; object-fit: cover; margin-bottom: 0.8rem;">
-                        <p style="font-size: 0.85rem; color: var(--gray);">Frutas e verduras frescas direto do produtor para a sua mesa.</p>
+                        <img src="assets/enc-fruteira.png" alt="Encarte Fruteira" style="width: 100%; border-radius: 4px; max-height: 220px; object-fit: cover; margin-bottom: 0.8rem;">
+                        <p style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.4rem;">Frutas e verduras frescas direto do produtor.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.2rem;">🕒 <strong>Horário:</strong> Seg a Sáb das 08h às 19h</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 <strong>Contato:</strong> (51) 98888-1111</p>
+                        <a href="https://wa.me/5551988881111?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 Chamar no WhatsApp</a>
                     </div>
                     <!-- Lanche -->
                     <div class="commerce-card">
@@ -199,8 +205,73 @@
                                 <span style="font-size: 0.75rem; color: var(--primary);">Parceiro R11</span>
                             </div>
                         </div>
-                        <img src="assets/enc-lanches.jpg" alt="Encarte Lanche" style="width: 100%; border-radius: 4px; max-height: 220px; object-fit: cover; margin-bottom: 0.8rem;">
-                        <p style="font-size: 0.85rem; color: var(--gray);">Os melhores lanches da região com entrega rápida e preço justo.</p>
+                        <img src="assets/enc-lanche.png" alt="Encarte Lanche" style="width: 100%; border-radius: 4px; max-height: 220px; object-fit: cover; margin-bottom: 0.8rem;">
+                        <p style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.4rem;">Os melhores lanches com entrega rápida.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.2rem;">🕒 <strong>Horário:</strong> Ter a Dom das 18h às 23h</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 <strong>Contato:</strong> (51) 97777-2222</p>
+                        <a href="https://wa.me/5551977772222?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 Chamar no WhatsApp</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profissionais Autônomos e Prestadores de Serviço -->
+            <section id="profissionais">
+                <h2>Profissionais e Prestadores de Serviços</h2>
+                <p style="color: var(--gray); margin-bottom: 1.2rem; font-size: 0.95rem;">Divulgue ou encontre serviços rápidos: motoristas, corretores, ajudantes de mudança e montagem de móveis.</p>
+                
+                <div class="grid-2">
+                    <div class="pro-card">
+                        <span class="badge" style="background: #ffb703; color: #000;">Mobilidade</span>
+                        <h4 style="font-size: 1rem;">Carlos Silva - Motorista Particular</h4>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Viagens, aeroporto e compromissos diários com segurança e pontualidade em São Leopoldo.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 (51) 96666-3333</p>
+                        <a href="https://wa.me/5551966663333?text=Olá%20Carlos,%20vi%20seu%20contato%20no%20site%20R11" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 WhatsApp</a>
+                    </div>
+
+                    <div class="pro-card">
+                        <span class="badge" style="background: #e63946;">Imóveis</span>
+                        <h4 style="font-size: 1rem;">Ana Souza - Corretora de Imóveis</h4>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Compra, venda e aluguel de residências e terrenos na região.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 (51) 95555-4444</p>
+                        <a href="https://wa.me/5551955554444?text=Olá%20Ana,%20vi%20seu%20contato%20no%20site%20R11" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 WhatsApp</a>
+                    </div>
+
+                    <div class="service-card">
+                        <span class="badge" style="background: #25d366;">Serviço Geral</span>
+                        <h4 style="font-size: 1rem;">Pago para Ajudar em Mudanças</h4>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Ofereço força e agilidade para carregar caixas, móveis e auxiliar em mudanças residenciais.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 (51) 94444-5555</p>
+                        <a href="https://wa.me/5551944445555?text=Olá,%20preciso%20de%20ajuda%20com%20mudança" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 WhatsApp</a>
+                    </div>
+
+                    <div class="service-card">
+                        <span class="badge" style="background: #25d366;">Serviço Geral</span>
+                        <h4 style="font-size: 1rem;">Montador de Móveis Profissional</h4>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Montagem e desmontagem de guarda-roupas, mesas, cozinhas e painéis.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 (51) 93333-6666</p>
+                        <a href="https://wa.me/5551933336666?text=Olá,%20preciso%20de%20montador%20de%20móveis" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 WhatsApp</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Animais Perdidos e Resgate -->
+            <section id="pets">
+                <h2>Animais Perdidos / Encontrados</h2>
+                <p style="color: var(--gray); margin-bottom: 1.2rem; font-size: 0.95rem;">Espaço comunitário para ajudar a reencontrar pets desaparecidos em São Leopoldo.</p>
+                <div class="grid-2">
+                    <div class="pet-card">
+                        <span class="badge" style="background: #e63946;">Procura-se / Perdido</span>
+                        <h4 style="font-size: 1rem;">Cachorro - Raça Poodle (Branco)</h4>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Responde pelo nome de "Mel". Sumiu perto do bairro Rio dos Sinos.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 Contato: (51) 92222-7777</p>
+                        <a href="https://wa.me/5551922227777?text=Sobre%20o%20pet%20perdido" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 Informar sobre o Pet</a>
+                    </div>
+                    <div class="pet-card">
+                        <span class="badge" style="background: #ffb703; color: #000;">Encontrado</span>
+                        <h4 style="font-size: 1rem;">Gato - Pelagem Tigrada</h4>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0;">Encontrado próximo à Praça Central. Está acolhido temporariamente.</p>
+                        <p style="font-size: 0.8rem; color: var(--white); margin-bottom: 0.8rem;">📞 Contato: (51) 91111-8888</p>
+                        <a href="https://wa.me/5551911118888?text=Sobre%20o%20gato%20encontrado" class="btn btn-whatsapp" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;" target="_blank">💬 Reconhecer Pet</a>
                     </div>
                 </div>
             </section>
@@ -214,12 +285,12 @@
                         <span class="badge" style="background: #444;">Partidas Encerradas</span>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.8rem 0;">
                             <div style="text-align: center; width: 40%;">
-                                <img src="assets/logo-time1.jpg" alt="Time 1" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                                <img src="assets/logo-time1.png" alt="Time 1" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
                                 <p style="font-size: 0.8rem;">Leopoldense</p>
                             </div>
                             <span style="font-weight: bold; font-size: 1.1rem; color: var(--primary);">2 x 1</span>
                             <div style="text-align: center; width: 40%;">
-                                <img src="assets/logo-time2.jpg" alt="Time 2" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                                <img src="assets/logo-time2.png" alt="Time 2" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
                                 <p style="font-size: 0.8rem;">União Vila</p>
                             </div>
                         </div>
@@ -235,7 +306,7 @@
                             </div>
                             <span style="font-weight: bold; font-size: 1rem; color: var(--white);">VS</span>
                             <div style="text-align: center; width: 40%;">
-                                <img src="assets/logo-time4.jpg" alt="Time 4" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                                <img src="assets/logo-time4.png" alt="Time 4" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
                                 <p style="font-size: 0.8rem;">R11 Esporte</p>
                             </div>
                         </div>
@@ -313,7 +384,7 @@
             </section>
 
             <!-- Empresas Parceiras -->
-            <section id="parceiro">
+            <section id="parceiros">
                 <h2>Empresas Parceiras</h2>
                 <div class="card" style="text-align: center; padding: 2.5rem;">
                     <p style="margin-bottom: 1.2rem; color: var(--gray); font-size: 0.95rem;">Empresas que acreditam e investem na força da união para transformar São Leopoldo.</p>
@@ -327,7 +398,7 @@
             </section>
 
             <!-- Botão Fixo WhatsApp -->
-            <a href="https://wa.me/5551991795608" class="whatsapp-btn" target="_blank">
+            <a href="https://wa.me/5551991795608" class="whatsapp-float" target="_blank">
                 💬 WhatsApp R11
             </a>
 
