@@ -8,11 +8,11 @@
         :root {
             --primary: #c92a2a;
             --primary-dark: #a61e1e;
-            --bg-main: #fcfcfc;
-            --bg-card: #ffffff;
-            --text-main: #2b2b2b;
-            --text-muted: #666666;
-            --border-color: #e5e5e5;
+            --bg-main: #141619;
+            --bg-card: #1e2229;
+            --text-main: #f1f3f5;
+            --text-muted: #adb5bd;
+            --border-color: #2c3038;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
@@ -21,13 +21,13 @@
         /* Pop-up de Boas-Vindas */
         .popup-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.75); z-index: 9999;
+            background: rgba(0, 0, 0, 0.85); z-index: 9999;
             display: flex; justify-content: center; align-items: center; padding: 1rem;
         }
         .popup-content {
             background: var(--bg-card); border: 1px solid var(--border-color);
             padding: 1.5rem; border-radius: 12px; text-align: center; max-width: 480px; width: 100%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-height: 95vh; overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-height: 95vh; overflow-y: auto;
             display: flex; flex-direction: column; align-items: center;
         }
         .popup-content h2 { color: var(--text-main); margin-bottom: 0.4rem; font-size: 1.4rem; font-weight: 600; }
@@ -40,76 +40,75 @@
         }
         .popup-video-wrapper iframe { width: 100%; height: 100%; border: none; }
 
-        /* Ocupar exatamente 1 tela no celular por seção */
+        /* Espaçamento menor e seções objetivas */
         section { 
-            min-height: 100vh; max-width: 800px; margin: 0 auto; 
-            padding: 3rem 1.2rem; display: flex; flex-direction: column; justify-content: center; 
+            max-width: 800px; margin: 0 auto; 
+            padding: 2rem 1.2rem; display: flex; flex-direction: column; justify-content: center; 
             border-bottom: 1px solid var(--border-color);
         }
 
         /* Hero Inicial Humanizado */
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('assets/praca.jpg');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.85)), url('assets/praca.jpg');
             background-size: cover; background-position: center;
-            color: #ffffff; text-align: center; padding: 2rem 1rem;
+            color: #ffffff; text-align: center; padding: 2.5rem 1rem;
         }
-        .header-logo { width: 100px; margin-bottom: 1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
-        .hero-section h1 { font-size: 2.2rem; margin-bottom: 0.4rem; font-weight: 700; letter-spacing: -0.5px; }
-        .hero-section p { font-size: 1rem; color: #f1f1f1; max-width: 600px; margin: 0 auto 1.5rem auto; font-weight: 300; }
+        .header-logo { width: 90px; margin-bottom: 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+        .hero-section h1 { font-size: 2rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.5px; }
 
         /* Bullet Points humanizados & objetivos */
         .bullet-list {
-            list-style: none; text-align: left; max-width: 500px; margin: 1rem auto;
-            background: rgba(255, 255, 255, 0.08); padding: 1.2rem 1.5rem; border-radius: 8px; backdrop-filter: blur(5px);
+            list-style: none; text-align: left; max-width: 420px; margin: 0 auto 1.2rem auto;
+            background: rgba(255, 255, 255, 0.05); padding: 1rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-color);
         }
         .bullet-list li {
-            margin-bottom: 0.6rem; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; color: #fff;
+            margin-bottom: 0.5rem; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; color: var(--text-main);
         }
         .bullet-list li:last-child { margin-bottom: 0; }
 
-        h2 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 600; text-align: center; }
+        h2 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 600; text-align: center; }
 
         /* Cards & Carrossel Simples */
         .carousel-container {
             display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
-            padding-bottom: 1rem; scrollbar-width: none; width: 100%;
+            padding-bottom: 0.8rem; scrollbar-width: none; width: 100%;
         }
         .carousel-container::-webkit-scrollbar { display: none; }
         
         .card-item {
-            min-width: 280px; max-width: 320px; flex: 0 0 auto; scroll-snap-align: start;
+            min-width: 260px; max-width: 300px; flex: 0 0 auto; scroll-snap-align: start;
             background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px;
-            padding: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;
+            padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: flex; flex-direction: column; justify-content: space-between;
         }
 
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; width: 100%; }
-        .card { background: var(--bg-card); padding: 1.2rem; border-radius: 8px; border: 1px solid var(--border-color); }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; width: 100%; }
+        .card { background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
 
-        /* Botões Discretos, Menos Vibrantes */
-        .btn-container { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        /* Botões Discretos */
+        .btn-container { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
         .btn { 
-            background: var(--primary); color: #fff; padding: 0.6rem 1.2rem; 
-            border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 0.85rem;
+            background: var(--primary); color: #fff; padding: 0.5rem 1rem; 
+            border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 0.8rem;
             transition: background 0.2s; display: inline-block; border: none; cursor: pointer; text-align: center;
         }
         .btn:hover { background: var(--primary-dark); }
-        .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.7); color: #fff; }
-        .btn-outline:hover { background: rgba(255,255,255,0.1); }
-        .btn-secondary { background: #495057; color: #fff; }
-        .btn-secondary:hover { background: #343a40; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { background: rgba(255,255,255,0.05); }
+        .btn-secondary { background: #343a40; color: #fff; }
+        .btn-secondary:hover { background: #495057; }
         .btn-whatsapp { background: #2b8a3e; color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: 100%; }
-        .btn-whatsapp:hover { background: #2b8a3e; opacity: 0.9; }
+        .btn-whatsapp:hover { opacity: 0.9; }
 
-        .badge { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.7rem; border-radius: 4px; background: #f1f3f5; color: var(--text-main); margin-bottom: 0.4rem; font-weight: 500; }
+        .badge { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.65rem; border-radius: 4px; background: #2c3038; color: var(--text-main); margin-bottom: 0.3rem; font-weight: 500; }
 
         /* Feed Post */
-        .post-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); width: 100%; max-width: 500px; margin: 0 auto; }
-        .post-img { width: 100%; max-height: 260px; object-fit: cover; }
-        .post-content { padding: 1.2rem; text-align: left; }
+        .post-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); width: 100%; max-width: 480px; margin: 0 auto; }
+        .post-img { width: 100%; max-height: 240px; object-fit: cover; }
+        .post-content { padding: 1rem; text-align: left; }
 
         /* Barra de Navegação Inferior Mobile */
         .bottom-nav {
-            position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; 
+            position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-card); 
             border-top: 1px solid var(--border-color); display: flex; justify-content: space-around; 
             align-items: center; padding: 0.4rem; z-index: 999;
         }
@@ -122,14 +121,14 @@
 
         /* Botão Fixo WhatsApp */
         .whatsapp-float { 
-            position: fixed; bottom: 65px; right: 15px; background: #2b8a3e; color: white; 
+            position: fixed; bottom: 60px; right: 15px; background: #2b8a3e; color: white; 
             padding: 8px 14px; border-radius: 50px; text-decoration: none; font-weight: 500; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; display: flex; align-items: center; gap: 6px; font-size: 0.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; gap: 6px; font-size: 0.8rem;
         }
 
-        footer { background: #212529; color: #adb5bd; text-align: center; padding: 2rem 1.2rem; border-top: 1px solid var(--border-color); margin-bottom: 50px; }
-        .social-links { margin-bottom: 0.6rem; font-size: 0.9rem; }
-        .social-links a { color: #fff; margin: 0 6px; text-decoration: none; }
+        footer { background: #0f1113; color: var(--text-muted); text-align: center; padding: 1.5rem 1rem; border-top: 1px solid var(--border-color); margin-bottom: 50px; }
+        .social-links { margin-bottom: 0.5rem; font-size: 0.85rem; }
+        .social-links a { color: var(--text-main); margin: 0 6px; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -154,16 +153,15 @@
         }
     </script>
 
-    <!-- Tela 1: Hero Inicial Humanizado -->
+    <!-- Seção 1: Hero Inicial Humanizado -->
     <section class="hero-section" id="inicio">
         <img src="assets/logo-r11.png" alt="Logotipo R11" class="header-logo">
         <h1>R11 – Juntos Somos +</h1>
-        <p>Um grupo de amigos e parceiros unidos pelo propósito genuíno de cuidar de quem mais precisa e fazer o bem pela nossa comunidade.</p>
         
         <ul class="bullet-list">
-            <li>🤝 <strong>Ações Sociais:</strong> Apoio direto a famílias e crianças.</li>
+            <li>⚡ <strong>Ações Sociais:</strong> Apoio direto a famílias e crianças.</li>
             <li>🌱 <strong>Cuidando da Cidade:</strong> Zeladoria e melhoria de praças.</li>
-            <li>⚡ <strong>Apoio Mútuo:</strong> Valorização do comércio e união local.</li>
+            <li>🤝 <strong>Comunidade:</strong> Valorização do comércio e união local.</li>
         </ul>
 
         <div class="btn-container">
@@ -172,100 +170,98 @@
         </div>
     </section>
 
-    <!-- Tela 2: Feed e Ações em Destaque -->
+    <!-- Seção 2: Feed e Ações em Destaque -->
     <section id="feed">
         <h2>Feed de Ações</h2>
         <div class="post-card">
             <img src="assets/acao-voluntaria.jpg" alt="Voluntário revitalizando área" class="post-img">
             <div class="post-content">
-                <span class="badge" style="background: #f8f9fa; border: 1px solid var(--border-color);">Ação Recente</span>
-                <h3 style="margin: 0.3rem 0; font-size: 1.1rem; font-weight: 600;">Mão na Massa em São Leopoldo</h3>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.8rem;">Trabalho voluntário de revitalização e cuidado com os espaços públicos da nossa cidade.</p>
-                <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank">💬 Saiba mais no WhatsApp</a>
+                <span class="badge">Ação Recente</span>
+                <h3 style="margin: 0.3rem 0; font-size: 1rem; font-weight: 600;">Mão na Massa em São Leopoldo</h3>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.8rem;">Trabalho voluntário de revitalização e cuidado com os espaços públicos da nossa cidade.</p>
+                <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.75rem; padding: 0.4rem;">💬 Saiba mais no WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <!-- Tela 3: Mural de Ações (Carrossel) -->
+    <!-- Seção 3: Mural de Ações (Carrossel) -->
     <section id="mural">
         <h2>Mural de Ações</h2>
-        <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 1rem;">Arraste para o lado para ver os próximos eventos</p>
-        
         <div class="carousel-container">
             <div class="card-item">
                 <div>
-                    <span class="badge" style="background: #fff3bf; color: #856404;">Em Andamento</span>
-                    <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">Praça Rio dos Sinos</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">Mutirão de roçada e pintura de meios-fios.</p>
+                    <span class="badge" style="background: #3b2b1e; color: #f59f00;">Em Andamento</span>
+                    <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Praça Rio dos Sinos</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Mutirão de roçada e pintura de meios-fios.</p>
                 </div>
-                <p style="font-weight: 500; font-size: 0.75rem; margin-top: 1rem; color: var(--text-main);">📅 15/08/2026</p>
+                <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 15/08/2026</p>
             </div>
 
             <div class="card-item">
                 <div>
-                    <span class="badge" style="background: #e3fafc; color: #0b7285;">Planejado</span>
-                    <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">Revitalização Pública</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">Pintura de bancos e plantio de mudas locais.</p>
+                    <span class="badge" style="background: #1b2e3b; color: #228be6;">Planejado</span>
+                    <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Revitalização Pública</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Pintura de bancos e plantio de mudas locais.</p>
                 </div>
-                <p style="font-weight: 500; font-size: 0.75rem; margin-top: 1rem; color: var(--text-main);">📅 22/08/2026</p>
+                <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 22/08/2026</p>
             </div>
 
             <div class="card-item">
                 <div>
-                    <span class="badge" style="background: #ebfbee; color: #2b8a3e;">Confirmado</span>
-                    <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">Campanha de Inverno</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">Arrecadação e distribuição de agasalhos.</p>
+                    <span class="badge" style="background: #1e3b22; color: #40c057;">Confirmado</span>
+                    <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Campanha de Inverno</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Arrecadação e distribuição de agasalhos.</p>
                 </div>
-                <p style="font-weight: 500; font-size: 0.75rem; margin-top: 1rem; color: var(--text-main);">📅 30/08/2026</p>
+                <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 30/08/2026</p>
             </div>
         </div>
     </section>
 
-    <!-- Tela 4: Comércio Local e Parceiros -->
+    <!-- Seção 4: Comércio Local e Parceiros -->
     <section id="comercio">
         <h2>Comércio Local e Parceiros</h2>
         <div class="carousel-container">
             <div class="card-item">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.6rem;">
-                    <img src="assets/logo-fruteira.jpg" alt="Logo" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                    <img src="assets/logo-fruteira.jpg" alt="Logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
                     <div>
-                        <h4 style="font-size: 0.9rem;">Fruteira Bom Preço</h4>
-                        <span style="font-size: 0.65rem; color: var(--text-muted);">Parceiro R11</span>
+                        <h4 style="font-size: 0.85rem;">Fruteira Bom Preço</h4>
+                        <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
                     </div>
                 </div>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">🕒 Seg a Sáb: 08h às 19h</p>
-                <a href="https://wa.me/5551988881111" class="btn btn-whatsapp" target="_blank" style="font-size: 0.75rem; padding: 0.4rem;">💬 Contato</a>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Seg a Sáb: 08h às 19h</p>
+                <a href="https://wa.me/5551988881111" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Contato</a>
             </div>
 
             <div class="card-item">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.6rem;">
-                    <img src="assets/logo-lanches.jpg" alt="Logo" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                    <img src="assets/logo-lanches.jpg" alt="Logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
                     <div>
-                        <h4 style="font-size: 0.9rem;">Lanches & Cia</h4>
-                        <span style="font-size: 0.65rem; color: var(--text-muted);">Parceiro R11</span>
+                        <h4 style="font-size: 0.85rem;">Lanches & Cia</h4>
+                        <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
                     </div>
                 </div>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">🕒 Ter a Dom: 18h às 23h</p>
-                <a href="https://wa.me/5551977772222" class="btn btn-whatsapp" target="_blank" style="font-size: 0.75rem; padding: 0.4rem;">💬 Contato</a>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Ter a Dom: 18h às 23h</p>
+                <a href="https://wa.me/5551977772222" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Contato</a>
             </div>
         </div>
     </section>
 
-    <!-- Tela 5: Comunidade (Vagas e Doações) -->
+    <!-- Seção 5: Comunidade (Vagas e Doações) -->
     <section id="comunidade">
         <h2>Comunidade e Ajuda</h2>
         <div class="grid-2">
             <div class="card">
                 <span class="badge">Doações</span>
-                <h4 style="font-size: 0.95rem; margin-bottom: 0.3rem;">Cama Hospitalar / Cadeira</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">Buscamos empréstimo ou doação para famílias.</p>
-                <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.4rem; width: 100%;">Informar Doação</a>
+                <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Cama Hospitalar / Cadeira</h4>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">Buscamos empréstimo ou doação para famílias.</p>
+                <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação" class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.3rem; width: 100%;">Informar Doação</a>
             </div>
             <div class="card">
                 <span class="badge">Vagas / Serviços</span>
-                <h4 style="font-size: 0.95rem; margin-bottom: 0.3rem;">Zelador / Ajudante</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">Oportunidades locais e banco de talentos.</p>
-                <a href="https://wa.me/5551991795608?text=Quero%20enviar%20currículo" class="btn btn-secondary" style="font-size: 0.75rem; padding: 0.4rem; width: 100%;">Enviar Currículo</a>
+                <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Zelador / Ajudante</h4>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">Oportunidades locais e banco de talentos.</p>
+                <a href="https://wa.me/5551991795608?text=Quero%20enviar%20currículo" class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.3rem; width: 100%;">Enviar Currículo</a>
             </div>
         </div>
     </section>
