@@ -7,7 +7,7 @@
     <style>
         :root {
             --primary: #e63946;
-            --bg-main: #f4f6f9;
+            --bg-main: #f8f9fa;
             --bg-card: #ffffff;
             --text-main: #212529;
             --text-muted: #6c757d;
@@ -15,7 +15,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: var(--bg-main); color: var(--text-main); line-height: 1.6; padding-bottom: 70px; }
+        body { background: var(--bg-main); color: var(--text-main); line-height: 1.6; padding-bottom: 70px; scroll-behavior: smooth; }
 
         /* Popup de Boas-Vindas */
         .popup-overlay {
@@ -32,7 +32,6 @@
         .popup-content h2 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.5rem; border: none; padding: 0; }
         .popup-content p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem; }
         
-        /* Centralização Perfeita do Vídeo */
         .popup-video-wrapper { 
             width: 100%; max-width: 420px; aspect-ratio: 16/9; background: #000; 
             margin: 0 auto 1.2rem auto; border-radius: 6px; overflow: hidden; 
@@ -40,20 +39,30 @@
         }
         .popup-video-wrapper iframe { width: 100%; height: 100%; border: none; }
 
-        /* Header & Hero */
+        /* Header & Hero com foco na R11 */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('assets/praca.jpg');
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('assets/praca.jpg');
             background-size: cover; background-position: center;
-            color: #ffffff; padding: 3rem 1.5rem; text-align: center;
+            color: #ffffff; padding: 4rem 1.5rem; text-align: center;
             border-bottom: 4px solid var(--primary);
         }
-        .header-logo { width: 110px; margin-bottom: 1rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
-        header h1 { font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: 1px; color: #fff; }
-        header p { font-size: 1.05rem; color: #f1f1f1; }
+        .header-logo { width: 130px; margin-bottom: 1rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: 1px; color: #fff; }
+        header p { font-size: 1.2rem; color: #f1f1f1; max-width: 700px; margin: 0 auto; }
 
-        /* Sections */
-        section { max-width: 900px; margin: 2.5rem auto; padding: 0 1rem; }
-        h2 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 10px; }
+        /* Sections & Transições Harmônicas */
+        section { max-width: 900px; margin: 3rem auto; padding: 0 1rem; transition: all 0.3s ease; }
+        h2 { font-size: 1.7rem; margin-bottom: 1.2rem; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 10px; }
+
+        /* Destaque Especial para Ações Sociais / Solidariedade */
+        .social-highlight {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 20px rgba(230,57,70,0.1);
+        }
 
         /* Cards & Grids */
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
@@ -61,13 +70,13 @@
         .card { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border-color); }
 
         /* Botões */
-        .btn-container { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
+        .btn-container { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 1.8rem; }
         .btn { 
-            background: var(--primary); color: #fff; padding: 0.7rem 1.2rem; 
+            background: var(--primary); color: #fff; padding: 0.7rem 1.4rem; 
             border-radius: 5px; text-decoration: none; font-weight: bold; 
-            transition: opacity 0.2s; display: inline-block; border: none; cursor: pointer; font-size: 0.9rem; text-align: center;
+            transition: opacity 0.2s, transform 0.2s; display: inline-block; border: none; cursor: pointer; font-size: 0.95rem; text-align: center;
         }
-        .btn:hover { opacity: 0.9; }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
         .btn-outline { background: transparent; border: 2px solid #fff; color: #fff; }
         .btn-outline:hover { background: #fff; color: var(--text-main); }
         .btn-support { background: #ffb703; color: #000; }
@@ -82,8 +91,8 @@
 
         /* Feed & Vídeo Principal */
         .post-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 1.5rem; border: 1px solid var(--border-color); }
-        .post-img { width: 100%; max-height: 320px; object-fit: cover; }
-        .post-content { padding: 1.2rem; }
+        .post-img { width: 100%; max-height: 350px; object-fit: cover; }
+        .post-content { padding: 1.5rem; }
         
         .video-wrapper { 
             position: relative; width: 100%; aspect-ratio: 16/9; background: #000; 
@@ -91,7 +100,7 @@
         }
         .video-wrapper iframe { width: 100%; height: 100%; border: none; }
 
-        /* Barra Inferior Fixa para Mobile e Navegação */
+        /* Barra de Navegação Inferior Mobile */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; 
             border-top: 1px solid var(--border-color); display: flex; justify-content: space-around; 
@@ -104,16 +113,16 @@
         .bottom-nav a span { font-size: 1.2rem; }
         .bottom-nav a:hover, .bottom-nav a.active { color: var(--primary); }
 
-        /* Botão Fixo WhatsApp (Ajustado acima da barra inferior) */
+        /* Botão Fixo WhatsApp */
         .whatsapp-float { 
             position: fixed; bottom: 70px; right: 20px; background: #25d366; color: white; 
             padding: 10px 16px; border-radius: 50px; text-decoration: none; font-weight: bold; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; gap: 8px; font-size: 0.85rem;
         }
 
-        /* Player de Rádio Integrado */
-        .radio-box { background: var(--bg-card); border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; text-align: center; margin-top: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .radio-box audio { width: 100%; margin-top: 0.5rem; }
+        /* Player de Rádio Integrado (Rock / Anos 80 e 90 Funcional) */
+        .radio-box { background: var(--bg-card); border: 1px solid var(--border-color); padding: 1.2rem; border-radius: 8px; text-align: center; margin-top: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .radio-box audio { width: 100%; margin-top: 0.6rem; }
 
         footer { background: #212529; color: #adb5bd; text-align: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border-color); margin-bottom: 50px; }
         .social-links { margin-bottom: 0.8rem; font-size: 1rem; }
@@ -122,7 +131,7 @@
 </head>
 <body>
 
-    <!-- Pop-up de Boas-Vindas com Vídeo Perfeitamente Centralizado -->
+    <!-- Pop-up de Boas-Vindas com Vídeo Centralizado -->
     <div id="welcomePopup" class="popup-overlay">
         <div class="popup-content">
             <h2>Bem-vindo à R11! ⚡</h2>
@@ -142,46 +151,67 @@
         }
     </script>
 
-    <!-- Header & Hero -->
+    <!-- Header & Hero: Foco Total na Apresentação da R11 -->
     <header>
         <img src="assets/logo-r11.png" alt="Logotipo R11" class="header-logo">
         <h1>R11 – A Força da União</h1>
-        <p>Transformando espaços, valorizando o comércio e cuidando de pessoas</p>
+        <p>Mais do que um grupo, somos uma força viva dedicada à transformação urbana, solidariedade e ao bem-estar coletivo de São Leopoldo.</p>
         <div class="btn-container">
             <a href="https://wa.me/5551991795608?text=Quero%20apoiar%20o%20projeto%20R11" class="btn btn-support" target="_blank">⭐ Apoie o Projeto R11</a>
-            <a href="#parceiros" class="btn btn-outline">Quero Ser Parceiro R11</a>
+            <a href="#social" class="btn btn-outline">Conheça Nossas Ações Sociais</a>
         </div>
     </header>
 
     <main>
-        <!-- Quem Somos -->
-        <section id="quem-somos">
-            <h2>Quem Somos</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <p>A R11 representa a força coletiva em sua forma mais ativa. Não somos apenas um grupo; somos uma força viva movida pelo compromisso com o bem-estar de São Leopoldo. Atuamos de ponta a ponta na zeladoria urbana e apoio social.</p>
+        <!-- Foco Inicial: Feed de Ações e Trabalho da R11 -->
+        <section id="feed-principal">
+            <h2>Feed R11 & Ações em Destaque</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.2rem;">Acompanhe o "mão na massa" diário da nossa equipe nas ruas e praças da cidade.</p>
+            
+            <div class="post-card">
+                <img src="assets/acao-voluntaria.jpg" alt="Voluntário revitalizando área" class="post-img">
+                <div class="post-content">
+                    <span class="badge" style="background: var(--primary); color: #fff;">Ação Recente</span>
+                    <h3 style="margin: 0.4rem 0; font-size: 1.3rem;">Mão na Massa pela nossa Cidade! ⚡</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Nossa equipe atuando diretamente na revitalização, limpeza e pintura de vias públicas em São Leopoldo. Cada metro cuidado é um reflexo do nosso compromisso inegociável com a comunidade.</p>
+                    <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--primary); font-weight: bold;">#R11 #JuntosSomosMais #ZeladoriaUrbana #SaoLeopoldo</p>
                 </div>
-                <div class="card" style="border-left: 4px solid var(--primary);">
-                    <h3>Nossa Missão</h3>
-                    <p>Revitalizar praças, limpar ruas, apoiar o comércio local, incentivar o esporte comunitário e estender a mão a quem mais precisa.</p>
+            </div>
+
+            <!-- Vídeo Principal do Facebook na Página Inicial -->
+            <div class="post-card" style="margin-top: 2rem;">
+                <div class="video-wrapper">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D4185422071498870&show_text=false&width=560&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+                <div class="post-content">
+                    <span class="badge" style="background: #333; color: #fff;">História R11</span>
+                    <h3 style="margin: 0.4rem 0; font-size: 1.3rem;">A Força Coletiva em Movimento</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Assista ao vídeo e veja a essência das nossas mobilizações e o impacto positivo gerado pela união de todos.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Rádio Continental Online RS -->
-        <section id="radio">
-            <div class="radio-box">
-                <h3 style="font-size: 1.1rem; color: var(--primary);">📻 Rádio Continental RS</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Ouça nossa programação enquanto navega pelo site.</p>
-                <!-- Exemplo de player de rádio online do RS -->
-                <audio controls>
-                    <source src="https://ice.fabricahost.com.br/continentalrs" type="audio/mpeg">
-                    Seu navegador não suporta áudio HTML5.
-                </audio>
+        <!-- Transição Suave: Ações Sociais e Solidariedade (Atenção Especial) -->
+        <section id="social">
+            <div class="social-highlight">
+                <span class="badge" style="background: var(--primary); color: #fff; font-size: 0.85rem; padding: 0.3rem 0.8rem;">Pilares da R11</span>
+                <h2 style="border: none; padding: 0; margin-top: 0.5rem;">Ações Sociais e Solidariedade</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.2rem; font-size: 1rem;">A verdadeira força da R11 reside no cuidado humanitário. Realizamos campanhas contínuas de apoio às famílias em vulnerabilidade, distribuição de alimentos, suporte em datas comemorativas (como o Natal da R11) e captação de recursos médicos essenciais.</p>
+                
+                <div class="grid-2" style="margin-top: 1rem;">
+                    <div class="card" style="background: #fff; border-left: 4px solid var(--primary);">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.4rem;">🤝 Apoio Comunitário e Doações</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Captação ativa de itens vitais para a comunidade, como camas hospitalares, cadeiras de rodas, cestas básicas e brinquedos para as crianças.</p>
+                    </div>
+                    <div class="card" style="background: #fff; border-left: 4px solid #25d366;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.4rem;">✨ Transformação de Realidades</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Revitalização de espaços públicos para garantir dignidade, lazer seguro e bem-estar para os moradores dos bairros.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Mural de Ações -->
+        <!-- Mural de Ações e Próximos Eventos -->
         <section id="mural">
             <h2>Mural de Ações e Próximos Eventos</h2>
             <div class="grid-3">
@@ -206,7 +236,20 @@
             </div>
         </section>
 
-        <!-- Divulgação do Comércio Local -->
+        <!-- Rádio Online (Rock / Anos 80 e 90 Funcional) -->
+        <section id="radio">
+            <div class="radio-box">
+                <h3 style="font-size: 1.1rem; color: var(--primary);">🎸 Rádio Rock & Anos 80/90 (Ao Vivo)</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Curta os melhores clássicos do rock e dos flashbacks enquanto navega pelo site.</p>
+                <!-- Stream de rádio online funcional focada em clássicos/rock/flashback -->
+                <audio controls>
+                    <source src="https://stream.zeno.fm/f3wvbbqmdv8uv" type="audio/mpeg">
+                    Seu navegador não suporta áudio HTML5.
+                </audio>
+            </div>
+        </section>
+
+        <!-- Vitrine do Comércio Local -->
         <section id="comercio">
             <h2>Vitrine do Comércio Local</h2>
             <p style="color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.95rem;">Apoiamos e fortalecemos os pequenos negócios e empreendedores de nossa região.</p>
@@ -385,48 +428,6 @@
             </div>
         </section>
 
-        <!-- Feed & Vídeo do Facebook -->
-        <section>
-            <h2>Ações em Destaque (Feed R11)</h2>
-            <div class="post-card">
-                <img src="assets/acao-voluntaria.jpg" alt="Voluntário revitalizando área" class="post-img">
-                <div class="post-content">
-                    <h3 style="margin-bottom: 0.4rem; color: var(--primary);">Mão na Massa pela nossa Cidade! ⚡</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Nossa equipe atuando diretamente na revitalização e pintura de vias públicas em São Leopoldo. Cada metro cuidado é um reflexo do nosso compromisso.</p>
-                    <p style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--primary);">#R11 #JuntosSomosMais #ZeladoriaUrbana #SaoLeopoldo</p>
-                </div>
-            </div>
-
-            <div class="post-card" style="margin-top: 2rem;">
-                <div class="video-wrapper">
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D4185422071498870&show_text=false&width=560&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                </div>
-                <div class="post-content">
-                    <h3 style="margin-bottom: 0.4rem; color: var(--primary);">Nossa História em Vídeo</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Veja um pouco do trabalho e da dedicação da equipe R11 em prol da comunidade.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Doações Comunitárias -->
-        <section id="doacoes">
-            <h2>Banco de Doações Comunitárias</h2>
-            <div class="grid-2">
-                <div class="donation-card">
-                    <span class="badge" style="background: #e63946; color:#fff;">Necessidade Urgente</span>
-                    <h3>Cama Hospitalar / Cadeira de Rodas</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.4rem 0;">Buscamos doações ou empréstimo temporário de equipamentos médicos.</p>
-                    <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação%20médica" class="btn" style="padding: 0.3rem 0.8rem; font-size: 0.8rem; margin-top: 0.4rem; width: 100%;" target="_blank">Doar / Informar</a>
-                </div>
-                <div class="donation-card">
-                    <span class="badge" style="background: #25d366; color:#fff;">Disponível</span>
-                    <h3>Kits de Alimentos e Brinquedos</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.4rem 0;">Campanhas contínuas de apoio alimentar e datas comemorativas.</p>
-                    <a href="https://wa.me/5551991795608?text=Quero%20contribuir%20com%20cestas" class="btn" style="padding: 0.3rem 0.8rem; font-size: 0.8rem; margin-top: 0.4rem; width: 100%;" target="_blank">Contribuir</a>
-                </div>
-            </div>
-        </section>
-
         <!-- Vagas de Emprego -->
         <section id="vagas">
             <h2>Oportunidades e Banco de Talentos</h2>
@@ -452,13 +453,13 @@
         </section>
     </main>
 
-    <!-- Barra de Navegação Inferior (Ideal para Mobile) -->
+    <!-- Barra de Navegação Inferior Mobile -->
     <nav class="bottom-nav">
-        <a href="#quem-somos"><span>🏠</span>Início</a>
+        <a href="#feed-principal"><span>🏠</span>Início</a>
+        <a href="#social"><span>❤️</span>Social</a>
         <a href="#mural"><span>📋</span>Ações</a>
         <a href="#comercio"><span>🛒</span>Comércio</a>
-        <a href="#varzea"><span>⚽</span>Várzea</a>
-        <a href="#radio"><span>📻</span>Rádio</a>
+        <a href="#radio"><span>🎸</span>Rádio</a>
     </nav>
 
     <!-- Botão Fixo WhatsApp -->
