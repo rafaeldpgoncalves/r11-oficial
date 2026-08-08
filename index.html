@@ -40,14 +40,12 @@
         }
         .popup-video-wrapper iframe { width: 100%; height: 100%; border: none; }
 
-        /* Espaçamento menor e seções objetivas */
         section { 
             max-width: 800px; margin: 0 auto; 
             padding: 2rem 1.2rem; display: flex; flex-direction: column; justify-content: center; 
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Hero Inicial Humanizado */
         .hero-section {
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.85)), url('assets/praca.jpg');
             background-size: cover; background-position: center;
@@ -56,7 +54,6 @@
         .header-logo { width: 90px; margin-bottom: 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
         .hero-section h1 { font-size: 2rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.5px; }
 
-        /* Bullet Points humanizados & objetivos */
         .bullet-list {
             list-style: none; text-align: left; max-width: 420px; margin: 0 auto 1.2rem auto;
             background: rgba(255, 255, 255, 0.05); padding: 1rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-color);
@@ -68,7 +65,6 @@
 
         h2 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 600; text-align: center; }
 
-        /* Cards & Carrossel Simples */
         .carousel-container {
             display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
             padding-bottom: 0.8rem; scrollbar-width: none; width: 100%;
@@ -84,7 +80,6 @@
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; width: 100%; }
         .card { background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
 
-        /* Botões Discretos */
         .btn-container { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
         .btn { 
             background: var(--primary); color: #fff; padding: 0.5rem 1rem; 
@@ -101,10 +96,15 @@
 
         .badge { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.65rem; border-radius: 4px; background: #2c3038; color: var(--text-main); margin-bottom: 0.3rem; font-weight: 500; }
 
-        /* Feed Post */
         .post-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); width: 100%; max-width: 480px; margin: 0 auto; }
         .post-img { width: 100%; max-height: 240px; object-fit: cover; }
         .post-content { padding: 1rem; text-align: left; }
+
+        /* Estilos específicos para Várzea */
+        .match-details { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.4rem; }
+
+        /* Player Spotify Box */
+        .spotify-box { display: flex; justify-content: center; margin-top: 1rem; width: 100%; }
 
         /* Barra de Navegação Inferior Mobile */
         .bottom-nav {
@@ -119,7 +119,6 @@
         .bottom-nav a span { font-size: 1.1rem; }
         .bottom-nav a:hover, .bottom-nav a.active { color: var(--primary); }
 
-        /* Botão Fixo WhatsApp */
         .whatsapp-float { 
             position: fixed; bottom: 60px; right: 15px; background: #2b8a3e; color: white; 
             padding: 8px 14px; border-radius: 50px; text-decoration: none; font-weight: 500; 
@@ -217,7 +216,58 @@
         </div>
     </section>
 
-    <!-- Seção 4: Comércio Local e Parceiros -->
+    <!-- Seção 4: Campeonato da Várzea -->
+    <section id="varzea">
+        <h2>Campeonato da Várzea</h2>
+        <div class="carousel-container">
+            <div class="card-item">
+                <div>
+                    <span class="badge" style="background: #2c3038; color: #adb5bd;">Encerrado</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
+                        <div style="text-align: center; width: 40%;">
+                            <img src="assets/logo-time1.png" alt="Time 1" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                            <p style="font-size: 0.75rem;">Leopoldense</p>
+                        </div>
+                        <span style="font-weight: bold; font-size: 1rem; color: var(--primary);">2 x 1</span>
+                        <div style="text-align: center; width: 40%;">
+                            <img src="assets/logo-time2.png" alt="Time 2" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                            <p style="font-size: 0.75rem;">União Vila</p>
+                        </div>
+                    </div>
+                    <div class="match-details">
+                        <p>⚽ Gols: Carlos (15' 1T), João (30' 2T) - Leo / Pedro (42' 2T) - UV</p>
+                        <p>🟨 Cartões: 2 Amarelos | 🟥 0 Vermelhos</p>
+                        <p>👥 Público: Aprox. 250 pessoas</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">Campo do Morro</p>
+            </div>
+
+            <div class="card-item">
+                <div>
+                    <span class="badge" style="background: #1e3b22; color: #40c057;">Próxima Partida</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
+                        <div style="text-align: center; width: 40%;">
+                            <img src="assets/logo-time3.png" alt="Time 3" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                            <p style="font-size: 0.75rem;">Amigos F.C.</p>
+                        </div>
+                        <span style="font-weight: bold; font-size: 0.9rem; color: var(--text-main);">VS</span>
+                        <div style="text-align: center; width: 40%;">
+                            <img src="assets/logo-time4.png" alt="Time 4" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                            <p style="font-size: 0.75rem;">R11 Esporte</p>
+                        </div>
+                    </div>
+                    <div class="match-details">
+                        <p>📅 Sábado, às 16:00</p>
+                        <p>📍 Local: Campo Municipal de São Leopoldo</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.7rem; color: var(--primary); text-align: center; font-weight: 500; margin-top: 0.5rem;">Partida Oficial do Torneio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5: Comércio Local e Parceiros -->
     <section id="comercio">
         <h2>Comércio Local e Parceiros</h2>
         <div class="carousel-container">
@@ -247,10 +297,10 @@
         </div>
     </section>
 
-    <!-- Seção 5: Comunidade (Vagas e Doações) -->
+    <!-- Seção 6: Comunidade (Vagas e Doações) e Player Spotify -->
     <section id="comunidade">
         <h2>Comunidade e Ajuda</h2>
-        <div class="grid-2">
+        <div class="grid-2" style="margin-bottom: 1.5rem;">
             <div class="card">
                 <span class="badge">Doações</span>
                 <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Cama Hospitalar / Cadeira</h4>
@@ -264,6 +314,11 @@
                 <a href="https://wa.me/5551991795608?text=Quero%20enviar%20currículo" class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.3rem; width: 100%;">Enviar Currículo</a>
             </div>
         </div>
+
+        <!-- Player do Spotify Adicionado -->
+        <div class="spotify-box">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1E4vXOEpNGctsQ?utm_source=generator&theme=0&si=9483af6d0eca4e3f" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
     </section>
 
     <!-- Barra de Navegação Inferior Mobile -->
@@ -271,8 +326,8 @@
         <a href="#inicio" class="active"><span>🏠</span>Início</a>
         <a href="#feed"><span>📰</span>Feed</a>
         <a href="#mural"><span>📋</span>Mural</a>
+        <a href="#varzea"><span>⚽</span>Várzea</a>
         <a href="#comercio"><span>🛒</span>Comércio</a>
-        <a href="#comunidade"><span>🤝</span>Ajuda</a>
     </nav>
 
     <!-- Botão Fixo WhatsApp -->
