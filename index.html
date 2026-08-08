@@ -72,7 +72,7 @@
         .carousel-container::-webkit-scrollbar { display: none; }
         
         .card-item {
-            min-width: 260px; max-width: 300px; flex: 0 0 auto; scroll-snap-align: start;
+            min-width: 280px; max-width: 320px; flex: 0 0 auto; scroll-snap-align: start;
             background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px;
             padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: flex; flex-direction: column; justify-content: space-between;
         }
@@ -100,10 +100,7 @@
         .post-img { width: 100%; max-height: 240px; object-fit: cover; }
         .post-content { padding: 1rem; text-align: left; }
 
-        /* Estilos específicos para Várzea */
         .match-details { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.4rem; }
-
-        /* Player Spotify Box */
         .spotify-box { display: flex; justify-content: center; margin-top: 1rem; width: 100%; }
 
         /* Barra de Navegação Inferior Mobile */
@@ -158,9 +155,9 @@
         <h1>R11 – Juntos Somos +</h1>
         
         <ul class="bullet-list">
-            <li>⚡ <strong>Ações Sociais:</strong> Apoio direto a famílias e crianças.</li>
-            <li>🌱 <strong>Cuidando da Cidade:</strong> Zeladoria e melhoria de praças.</li>
-            <li>🤝 <strong>Comunidade:</strong> Valorização do comércio e união local.</li>
+            <li>🤝<strong>Ações Sociais:</strong></li>
+            <li>🌱 <strong>Cuidando da Cidade:</strong></li>
+            <li>🤝 <strong>Comunidade:</strong></li>
         </ul>
 
         <div class="btn-container">
@@ -267,32 +264,36 @@
         </div>
     </section>
 
-    <!-- Seção 5: Comércio Local e Parceiros -->
+    <!-- Seção 5: Comércio Local, Parceiros e Encartes -->
     <section id="comercio">
         <h2>Comércio Local e Parceiros</h2>
         <div class="carousel-container">
-            <div class="card-item">
+            <!-- Fruteira com Encarte -->
+            <div class="card-item" style="min-width: 280px;">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
-                    <img src="assets/logo-fruteira.jpg" alt="Logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <img src="assets/logo-fruteira.jpg" alt="Logo Fruteira" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
                     <div>
                         <h4 style="font-size: 0.85rem;">Fruteira Bom Preço</h4>
                         <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
                     </div>
                 </div>
+                <img src="assets/enc-fruteira.png" alt="Encarte Fruteira" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Seg a Sáb: 08h às 19h</p>
-                <a href="https://wa.me/5551988881111" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Contato</a>
+                <a href="https://wa.me/5551988881111?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 WhatsApp</a>
             </div>
 
-            <div class="card-item">
+            <!-- Lanches com Encarte -->
+            <div class="card-item" style="min-width: 280px;">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
-                    <img src="assets/logo-lanches.jpg" alt="Logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <img src="assets/logo-lanches.jpg" alt="Logo Lanches" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
                     <div>
                         <h4 style="font-size: 0.85rem;">Lanches & Cia</h4>
                         <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
                     </div>
                 </div>
+                <img src="assets/enc-lanche.png" alt="Encarte Lanche" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Ter a Dom: 18h às 23h</p>
-                <a href="https://wa.me/5551977772222" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Contato</a>
+                <a href="https://wa.me/5551977772222?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 WhatsApp</a>
             </div>
         </div>
     </section>
@@ -315,7 +316,7 @@
             </div>
         </div>
 
-        <!-- Player do Spotify Adicionado -->
+        <!-- Player do Spotify -->
         <div class="spotify-box">
             <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1E4vXOEpNGctsQ?utm_source=generator&theme=0&si=9483af6d0eca4e3f" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
