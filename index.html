@@ -38,6 +38,7 @@
 
         /* Cards & Grids */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .card { background: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #2a2a2a; }
 
         /* Ações e Botões */
@@ -50,9 +51,12 @@
         .btn:hover { opacity: 0.9; }
         .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
         .btn-outline:hover { background: var(--white); color: var(--dark); }
+        .btn-support { background: #ffb703; color: #000; }
 
-        /* Vagas & Formulário */
-        .job-card { background: var(--card-bg); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; border: 1px solid #2a2a2a; }
+        /* Mural e Vagas Cards */
+        .mural-card, .job-card, .donation-card { background: var(--card-bg); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; border: 1px solid #2a2a2a; }
+        .badge { display: inline-block; padding: 0.2rem 0.6rem; font-size: 0.8rem; border-radius: 4px; background: #333; color: #fff; margin-bottom: 0.5rem; }
+        
         form input, form textarea { width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #2a2a2a; border: 1px solid #444; color: var(--white); border-radius: 4px; }
         form input::placeholder, form textarea::placeholder { color: #888; }
 
@@ -83,6 +87,7 @@
         <p>Transformando espaços e cuidando de pessoas em São Leopoldo</p>
         <div class="btn-container">
             <a href="tel:5551991795608" class="btn btn-outline">📞 (51) 99179-5608</a>
+            <a href="https://wa.me/5551991795608?text=Quero%20apoiar%20o%20projeto%20R11" class="btn btn-support" target="_blank">⭐ Apoie o Projeto R11</a>
             <a href="#parceiro" class="btn btn-outline">Quero Ser Parceiro R11</a>
             <a href="#vagas" class="btn btn-outline">Vagas e Currículos</a>
         </div>
@@ -98,6 +103,51 @@
             <div class="card" style="border-left: 5px solid var(--primary);">
                 <h3>Nossa Missão</h3>
                 <p>Revitalizar praças, limpar ruas, cuidar de terrenos e estender a mão através de campanhas solidárias que devolvem a dignidade e a esperança à comunidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mural com Ações em Andamento -->
+    <section>
+        <h2>Mural de Ações e Próximos Eventos</h2>
+        <div class="grid-3">
+            <div class="mural-card">
+                <span class="badge" style="background: #e63946;">Em Andamento</span>
+                <h3>Limpeza e Zeladoria - Praça Rio dos Sinos</h3>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Mutirão de roçada, pintura de meios-fios e recolhimento de resíduos.</p>
+                <p style="font-weight: bold; font-size: 0.85rem; color: var(--white);">📅 Data: 15/08/2026</p>
+            </div>
+            <div class="mural-card">
+                <span class="badge" style="background: #ffb703; color: #000;">Planejado</span>
+                <h3>Revitalização Espaço Público</h3>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Ação social de pintura de bancos e plantio de mudas na praça central.</p>
+                <p style="font-weight: bold; font-size: 0.85rem; color: var(--white);">📅 Data: 22/08/2026</p>
+            </div>
+            <div class="mural-card">
+                <span class="badge" style="background: #25d366;">Confirmado</span>
+                <h3>Campanha Solidária de Inverno</h3>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Arrecadação e distribuição de agasalhos e alimentos para famílias carentes.</p>
+                <p style="font-weight: bold; font-size: 0.85rem; color: var(--white);">📅 Data: 30/08/2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doações para a Comunidade -->
+    <section>
+        <h2>Banco de Doações Comunitárias</h2>
+        <p style="color: var(--gray); margin-bottom: 1.5rem;">Itens essenciais que estamos captando ou disponibilizando para auxiliar quem mais precisa na comunidade.</p>
+        <div class="grid-2">
+            <div class="donation-card">
+                <span class="badge">Necessidade Urgente</span>
+                <h3>Cama Hospitalar / Cadeira de Rodas</h3>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Buscamos doações ou empréstimo temporário de equipamentos médicos para famílias em reabilitação.</p>
+                <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação%20médica" class="btn" style="padding: 0.4rem 1rem; font-size: 0.85rem; margin-top: 0.5rem;" target="_blank">Doar / Informar</a>
+            </div>
+            <div class="donation-card">
+                <span class="badge" style="background: #25d366;">Disponível / Captação</span>
+                <h3>Kits de Alimentos e Brinquedos</h3>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0.5rem 0;">Campanhas contínuas de apoio alimentar e estruturação de datas comemorativas.</p>
+                <a href="https://wa.me/5551991795608?text=Quero%20contribuir%20com%20cestas" class="btn" style="padding: 0.4rem 1rem; font-size: 0.85rem; margin-top: 0.5rem;" target="_blank">Contribuir</a>
             </div>
         </div>
     </section>
