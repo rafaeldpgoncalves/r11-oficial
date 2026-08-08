@@ -7,19 +7,20 @@
     <style>
         :root {
             --primary: #e63946;
-            --dark: #111111;
+            --dark: #121212;
             --darker: #0a0a0a;
             --light: #f8f9fa;
             --white: #ffffff;
-            --gray: #6c757d;
+            --gray: #aaaaaa;
+            --card-bg: #1e1e1e;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: var(--light); color: var(--dark); line-height: 1.6; }
+        body { background: var(--dark); color: var(--white); line-height: 1.6; }
 
         /* Header & Hero */
         header {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('assets/praca.jpg');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('assets/praca.jpg');
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -29,18 +30,18 @@
         }
         .logo-img { width: 140px; margin-bottom: 1rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
         header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-        header p { font-size: 1.2rem; color: #ddd; }
+        header p { font-size: 1.2rem; color: var(--gray); }
 
         /* Sections */
         section { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; }
-        h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark); border-left: 5px solid var(--primary); padding-left: 15px; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--white); border-left: 5px solid var(--primary); padding-left: 15px; }
 
         /* Cards & Grids */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .card { background: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #2a2a2a; }
 
         /* Ações e Botões */
-        .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .btn-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
         .btn { 
             background: var(--primary); color: var(--white); padding: 0.8rem 1.5rem; 
             border-radius: 5px; text-decoration: none; font-weight: bold; 
@@ -51,11 +52,12 @@
         .btn-outline:hover { background: var(--white); color: var(--dark); }
 
         /* Vagas & Formulário */
-        .job-card { background: var(--white); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        form input, form textarea { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+        .job-card { background: var(--card-bg); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--primary); margin-bottom: 1rem; border: 1px solid #2a2a2a; }
+        form input, form textarea { width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #2a2a2a; border: 1px solid #444; color: var(--white); border-radius: 4px; }
+        form input::placeholder, form textarea::placeholder { color: #888; }
 
         /* Feed / Post Simulado */
-        .post-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 1.5rem; }
+        .post-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin-top: 1.5rem; border: 1px solid #2a2a2a; }
         .post-img { width: 100%; max-height: 400px; object-fit: cover; }
         .post-content { padding: 1.5rem; }
 
@@ -63,10 +65,10 @@
         .whatsapp-btn { 
             position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; 
             padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; gap: 10px;
         }
 
-        footer { background: var(--darker); color: var(--white); text-align: center; padding: 3rem 1.5rem; margin-top: 4rem; }
+        footer { background: var(--darker); color: var(--gray); text-align: center; padding: 3rem 1.5rem; margin-top: 4rem; border-top: 1px solid #222; }
         .social-links { margin-bottom: 1rem; font-size: 1.2rem; }
         .social-links a { color: var(--white); margin: 0 10px; text-decoration: none; }
 
@@ -79,7 +81,8 @@
         <img src="assets/logo-r11.png" alt="Logotipo R11" class="logo-img">
         <h1>R11 – A Força da União</h1>
         <p>Transformando espaços e cuidando de pessoas em São Leopoldo</p>
-        <div class="btn-container" style="justify-content: center; margin-top: 2rem;">
+        <div class="btn-container">
+            <a href="tel:5551991795608" class="btn btn-outline">📞 (51) 99179-5608</a>
             <a href="#parceiro" class="btn btn-outline">Quero Ser Parceiro R11</a>
             <a href="#vagas" class="btn btn-outline">Vagas e Currículos</a>
         </div>
@@ -106,8 +109,8 @@
             <img src="assets/acao-voluntaria.jpg" alt="Voluntário revitalizando área em São Leopoldo" class="post-img">
             <div class="post-content">
                 <h3 style="margin-bottom: 0.5rem; color: var(--primary);">Mão na Massa pela nossa Cidade! ⚡</h3>
-                <p>Nossa equipe atuando diretamente na revitalização e pintura de vias públicas em São Leopoldo. Cada metro cuidado é um reflexo do nosso compromisso com o futuro da nossa comunidade.</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">#R11 #JuntosSomosMais #ZeladoriaUrbana #SaoLeopoldo</p>
+                <p style="color: var(--gray);">Nossa equipe atuando diretamente na revitalização e pintura de vias públicas em São Leopoldo. Cada metro cuidado é um reflexo do nosso compromisso com o futuro da nossa comunidade.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--primary);">#R11 #JuntosSomosMais #ZeladoriaUrbana #SaoLeopoldo</p>
             </div>
         </div>
     </section>
@@ -141,8 +144,7 @@
         <h2>Empresas Parceiras</h2>
         <div class="card" style="text-align: center; padding: 3rem;">
             <p style="margin-bottom: 1.5rem; color: var(--gray);">Empresas que acreditam e investem na força da união para transformar São Leopoldo.</p>
-            <!-- Substitua ou adicione o logo da sua empresa parceira aqui -->
-            <div style="font-size: 1.5rem; font-weight: bold; color: var(--dark); background: #eee; display: inline-block; padding: 1rem 3rem; border-radius: 6px;">
+            <div style="font-size: 1.5rem; font-weight: bold; color: var(--white); background: #2a2a2a; display: inline-block; padding: 1rem 3rem; border-radius: 6px; border: 1px dashed #555;">
                 [ Logo da Empresa Parceira ]
             </div>
             <div style="margin-top: 2rem;">
@@ -158,8 +160,8 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://instagram.com/r11juntossomosmais" target="_blank">Instagram (@r11juntossomosmais)</a> | 
-            <a href="https://facebook.com" target="_blank">Facebook (R11)</a>
+            <a href="https://instagram.com/r11juntossomosmais" target="_blank">Instagram</a> | 
+            <a href="https://facebook.com" target="_blank">Facebook</a>
         </div>
         <p>&copy; 2026 R11 - Juntos Somos + | Rua Fernando Ferrari, 70, São Leopoldo</p>
     </footer>
