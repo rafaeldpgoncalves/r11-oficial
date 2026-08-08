@@ -1,120 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajude minha família na enchente!</title>
+    <title>R11 | A Força da União</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #000;
-            overflow: hidden;
+        :root {
+            --primary: #e63946; /* Vermelho R11 */
+            --dark: #1a1a1a;    /* Preto R11 */
+            --light: #f4f4f4;
+            --white: #ffffff;
         }
 
-        .container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            background: var(--light); 
+            color: var(--dark); 
+            line-height: 1.6;
         }
 
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        header { 
+            background: var(--dark); 
+            color: var(--white); 
+            padding: 4rem 2rem; 
+            text-align: center; 
         }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0);
+        header h1 { font-size: 3rem; margin: 0; color: var(--primary); }
+
+        section { padding: 3rem 2rem; max-width: 800px; margin: auto; }
+
+        .card { 
+            background: var(--white); 
+            padding: 2rem; 
+            margin-top: 2rem; 
+            border-left: 5px solid var(--primary); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            margin-bottom: 10px;
-            color: white;
+        /* Botão WhatsApp */
+        .whatsapp-btn { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: #25d366; 
+            color: white; 
+            padding: 15px 25px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            z-index: 1000;
         }
 
-        p, a {
-            margin: 5px 0;
-            font-size: 16px;
-            color: white;
-        }
+        .whatsapp-btn:hover { transform: scale(1.05); }
 
-        input[type="text"] {
-            width: 250px;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #007BFF;
-            color: white;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        #message {
-            margin-top: 10px;
-            font-size: 16px;
-            color: white;
-        }
+        footer { text-align: center; padding: 2rem; color: #666; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <video id="video" autoplay muted loop>
-            <source src="enchente.mp4" type="video/mp4">
-            Seu navegador não suporta o elemento de vídeo.
-        </video>
-        <div class="overlay">
-            <h1>Chave pix abaixo!</h1>
-            <a>Titular: Juliana Machado Michels</a>
-            <a>Qualquer valor é muito bem vindo. Obrigado!</a>
-            <input type="text" id="textToCopy" value="51991786140" readonly>
-            <button onclick="copyText()">Copiar Chave Pix</button>
-            <p id="message"></p>
+
+    <header>
+        <h1>R11</h1>
+        <p>A Força da União em Ação</p>
+    </header>
+
+    <section>
+        <h2>Quem Somos</h2>
+        <p>A R11 é uma força viva movida pelo compromisso com o bem-estar de São Leopoldo. Atuamos com zeladoria urbana e ações sociais para transformar nossa cidade e devolver a dignidade aos espaços públicos.</p>
+        
+        <div class="card">
+            <h3>Nossa Missão</h3>
+            <p>Revitalizar praças, limpar ruas e apoiar famílias através de ações práticas, voluntárias e solidárias. Juntos, fazemos a diferença.</p>
         </div>
-    </div>
-    <script>
-        // Define a velocidade de reprodução do vídeo
-        document.getElementById('video').playbackRate = 0.4; // Reproduz a 50% da velocidade normal
+    </section>
 
-        function copyText() {
-            var textToCopy = document.getElementById("textToCopy");
-            textToCopy.select();
-            textToCopy.setSelectionRange(0, 99999); // For mobile devices
+    <!-- Botão de WhatsApp -->
+    <a href="https://wa.me/5551991795608" class="whatsapp-btn" target="_blank">
+        Fale com a R11 no WhatsApp
+    </a>
 
-            try {
-                document.execCommand("copy");
-                document.getElementById("message").textContent = "Chave Pix copiada com sucesso!";
-            } catch (err) {
-                document.getElementById("message").textContent = "Falha ao copiar a chave Pix.";
-            }
-        }
-    </script>
+    <footer>
+        <p>&copy; 2026 R11 - Juntos Somos +</p>
+    </footer>
+
 </body>
 </html>
