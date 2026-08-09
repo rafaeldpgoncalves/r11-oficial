@@ -16,7 +16,17 @@
             --border-color: #dee2e6;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        /* Modo Descanso / Dark Mode ativado pelo Pop-up */
+        body.dark-mode {
+            --bg-page: #050505;
+            --bg-container: #121518;
+            --bg-card: #1a1e23;
+            --text-main: #f1f3f5;
+            --text-muted: #adb5bd;
+            --border-color: #2c3038;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; transition: background 0.3s, color 0.3s; }
         body { background: var(--bg-page); color: var(--text-main); line-height: 1.5; padding-bottom: 70px; scroll-behavior: smooth; }
 
         /* Pop-up de Boas-Vindas */
@@ -41,6 +51,11 @@
         }
         .popup-video-wrapper iframe { width: 100%; height: 100%; border: none; }
 
+        .popup-options {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; font-size: 0.85rem; color: #adb5bd; cursor: pointer;
+        }
+        .popup-options input { accent-color: var(--primary); cursor: pointer; width: 16px; height: 16px; }
+
         /* Estrutura central expandida para as laterais (largo e responsivo) */
         .main-container {
             max-width: 1150px;
@@ -53,6 +68,32 @@
             padding: 2.5rem 1.5rem; display: flex; flex-direction: column; justify-content: center; 
             border-bottom: 1px solid var(--border-color);
         }
+
+        /* Seção de Alertas e Notícias da Defesa Civil (Início) */
+        .news-ticker-section {
+            background: #121518;
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .news-header {
+            display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem;
+        }
+        .news-title {
+            font-size: 0.9rem; font-weight: 700; color: #ffb703; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .news-feed-box {
+            background: #1a1e23;
+            border: 1px solid #2c3038;
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            font-size: 0.85rem;
+            color: #ced4da;
+            max-height: 90px;
+            overflow-y: auto;
+        }
+        .news-item { margin-bottom: 0.4rem; display: flex; gap: 8px; align-items: baseline; }
+        .news-item span { font-size: 0.75rem; color: #adb5bd; white-space: nowrap; }
 
         .hero-section {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('assets/praca.jpg');
@@ -198,7 +239,7 @@
 </head>
 <body>
 
-    <!-- Pop-up de Boas-Vindas com Vídeo Centralizado -->
+    <!-- Pop-up de Boas-Vindas com Vídeo Centralizado e Modo Descanso -->
     <div id="welcomePopup" class="popup-overlay">
         <div class="popup-content">
             <h2>Bem-vindo à R11</h2>
@@ -208,11 +249,36 @@
                 <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D4185422071498870&show_text=false&width=560&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             </div>
 
+            <!-- Opção de Modo Descanso -->
+            <label class="popup-options">
+                <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode(this)">
+                Ativar Modo Descanso (Fundo escuro ideal para os olhos)
+            </label>
+
             <button onclick="closePopup()" class="btn" style="width: 100%;">Acessar Site</button>
         </div>
     </div>
 
     <script>
+        function toggleDarkMode(checkbox) {
+            if (checkbox.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('r11_dark_mode', 'enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('r11_dark_mode', 'disabled');
+            }
+        }
+
+        // Mantém preferência se já acessou
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('r11_dark_mode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                const chk = document.getElementById('darkModeToggle');
+                if(chk) chk.checked = true;
+            }
+        });
+
         function closePopup() {
             document.getElementById('welcomePopup').style.display = 'none';
         }
@@ -220,6 +286,26 @@
 
     <!-- Container Central Branco Lado a Lado (Expandido) com Bordas Pretas -->
     <div class="main-container">
+
+        <!-- Notícias e Alertas da Defesa Civil (RS e São Leopoldo) no Início -->
+        <div class="news-ticker-section">
+            <div class="news-header">
+                <div class="news-title">
+                    <span>⚠️</span> Alertas & Defesa Civil (RS / São Leopoldo)
+                </div>
+                <span style="font-size: 0.75rem; color: #adb5bd;">Atualizado em tempo real</span>
+            </div>
+            <div class="news-feed-box" id="defesaCivilNews">
+                <div class="news-item">
+                    <span>[08/08 10:00]</span>
+                    <div><strong>Defesa Civil RS:</strong> Monitoramento contínuo dos níveis dos rios e bacias hidrográficas na região metropolitana.</div>
+                </div>
+                <div class="news-item">
+                    <span>[08/08 09:15]</span>
+                    <div><strong>São Leopoldo:</strong> Equipes de zeladoria em alerta para manutenção preventiva em áreas de influência do Rio dos Sinos.</div>
+                </div>
+            </div>
+        </div>
 
         <!-- Seção 1: Hero Inicial Humanizado (Lado a Lado no Desktop com Espaço Publicitário Fixo "Anuncie Aqui") -->
         <section class="hero-section" id="inicio">
