@@ -61,10 +61,10 @@
         }
         .header-logo { width: 90px; margin-bottom: 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
         
-        /* Layout Lado a Lado no Hero (Desktop) com Espaço Publicitário Estático */
+        /* Layout Lado a Lado no Hero (Desktop) */
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 2rem;
             align-items: center;
             max-width: 1000px;
@@ -82,6 +82,11 @@
             }
         }
 
+        /* Impede quebras de linha em "R11 – Juntos Somos +" */
+        .no-break {
+            white-space: nowrap;
+        }
+
         .hero-section h1 { font-size: 2.2rem; margin-bottom: 0.6rem; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
 
         .bullet-list {
@@ -94,11 +99,11 @@
         }
         .bullet-list li:last-child { margin-bottom: 0; }
 
-        /* Bloco Fixo de Espaço Publicitário "Anuncie Aqui" */
+        /* Bloco Fixo de Espaço Publicitário "Anuncie Aqui" (Compacto) */
         .ad-space-box {
             background: rgba(0, 0, 0, 0.75);
             border: 2px dashed rgba(255, 255, 255, 0.4);
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 10px;
             text-align: center;
             display: flex;
@@ -106,10 +111,12 @@
             justify-content: center;
             align-items: center;
             backdrop-filter: blur(6px);
+            max-width: 320px;
+            margin: 0 auto;
         }
-        .ad-space-icon { font-size: 2.5rem; margin-bottom: 0.4rem; }
-        .ad-space-title { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
-        .ad-space-desc { font-size: 0.85rem; color: #adb5bd; margin-bottom: 1rem; }
+        .ad-space-icon { font-size: 2rem; margin-bottom: 0.2rem; }
+        .ad-space-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+        .ad-space-desc { font-size: 0.8rem; color: #adb5bd; margin-bottom: 0.8rem; }
 
         h2 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--text-main); font-weight: 700; text-align: center; }
 
@@ -219,7 +226,7 @@
             <div class="hero-grid">
                 <div class="hero-text">
                     <img src="assets/logo-r11.png" alt="Logotipo R11" class="header-logo">
-                    <h1 style="color: #fff;">R11 – Juntos Somos +</h1>
+                    <h1 style="color: #fff;"><span class="no-break">R11 – Juntos Somos +</span></h1>
                     
                     <ul class="bullet-list">
                         <li>⚡ <strong>Ações Sociais:</strong> Apoio direto a famílias e crianças.</li>
@@ -233,42 +240,14 @@
                     </div>
                 </div>
 
-                <!-- Espaço Publicitário Fixo "Anuncie Aqui" -->
+                <!-- Espaço Publicitário Fixo "Anuncie Aqui" (Compacto) -->
                 <div class="hero-sidebar">
                     <div class="ad-space-box">
                         <div class="ad-space-icon">📢</div>
                         <div class="ad-space-title">Anuncie Aqui</div>
                         <div class="ad-space-desc">Divulgue seu comércio ou serviço para toda São Leopoldo.</div>
-                        <a href="https://wa.me/5551991795608?text=Quero%20anunciar%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="padding: 0.5rem 1rem; font-size: 0.8rem;">💬 Entrar em Contato</a>
+                        <a href="https://wa.me/5551991795608?text=Quero%20anunciar%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">💬 Entrar em Contato</a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Grupos da Comunidade (WhatsApp e Facebook) -->
-        <section id="grupos">
-            <h2>Grupos da Comunidade</h2>
-            <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 1.2rem;">Participe e fique por dentro de tudo o que acontece em nossa região.</p>
-            
-            <div class="grid-2">
-                <!-- Grupo de WhatsApp -->
-                <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <span class="badge" style="background: #ebfbee; color: #2b8a3e;">WhatsApp</span>
-                        <h4 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--text-main);">Grupo Oficial R11 / Comunidade</h4>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Troca de informações, avisos rápidos e interação direta entre os moradores.</p>
-                    </div>
-                    <a href="https://chat.whatsapp.com/BDW9iMkGsOCFCKWz3P7Duw?s=cl&p=a&ilr=4" class="btn btn-whatsapp" target="_blank">💬 Entrar no Grupo de WhatsApp</a>
-                </div>
-
-                <!-- Grupo de Facebook -->
-                <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <span class="badge" style="background: #e7f5ff; color: #1877f2;">Facebook</span>
-                        <h4 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--text-main);">Comunidade R11 no Facebook</h4>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Debates, fotos de mutirões e engajamento com a rede de apoio local.</p>
-                    </div>
-                    <a href="https://www.facebook.com/share/g/1ELca69fDp/" class="btn-facebook" target="_blank">👥 Participar do Grupo no Facebook</a>
                 </div>
             </div>
         </section>
@@ -608,14 +587,42 @@
             </div>
         </section>
 
+        <!-- Seção 8: Divulgação de Grupos da Comunidade (Movida para o Final) -->
+        <section id="grupos">
+            <h2>Grupos da Comunidade</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 1.2rem;">Participe e fique por dentro de tudo o que acontece em nossa região.</p>
+            
+            <div class="grid-2">
+                <!-- Grupo de WhatsApp -->
+                <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="badge" style="background: #ebfbee; color: #2b8a3e;">WhatsApp</span>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--text-main);">Grupo Oficial R11 / Comunidade</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Troca de informações, avisos rápidos e interação direta entre os moradores.</p>
+                    </div>
+                    <a href="https://chat.whatsapp.com/BDW9iMkGsOCFCKWz3P7Duw?s=cl&p=a&ilr=4" class="btn btn-whatsapp" target="_blank">💬 Entrar no Grupo de WhatsApp</a>
+                </div>
+
+                <!-- Grupo de Facebook -->
+                <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="badge" style="background: #e7f5ff; color: #1877f2;">Facebook</span>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--text-main);">Comunidade R11 no Facebook</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Debates, fotos de mutirões e engajamento com a rede de apoio local.</p>
+                    </div>
+                    <a href="https://www.facebook.com/share/g/1ELca69fDp/" class="btn-facebook" target="_blank">👥 Participar do Grupo no Facebook</a>
+                </div>
+            </div>
+        </section>
+
     </div><!-- Fim do Container Central Ampliado -->
 
     <!-- Barra de Navegação Inferior Mobile -->
     <nav class="bottom-nav">
         <a href="#inicio" class="active"><span>🏠</span>Início</a>
-        <a href="#grupos"><span>👥</span>Grupos</a>
         <a href="#feed"><span>📰</span>Feed</a>
         <a href="#mural"><span>📋</span>Mural</a>
+        <a href="#varzea"><span>⚽</span>Várzea</a>
         <a href="#comercio"><span>🛒</span>Comércio</a>
     </nav>
 
