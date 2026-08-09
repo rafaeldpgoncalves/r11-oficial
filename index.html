@@ -61,7 +61,7 @@
         }
         .header-logo { width: 90px; margin-bottom: 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
         
-        /* Layout Lado a Lado no Hero para Desktop e Empilhado no Mobile */
+        /* Layout Lado a Lado no Hero (Desktop) com Espaço Publicitário Estático */
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -94,32 +94,22 @@
         }
         .bullet-list li:last-child { margin-bottom: 0; }
 
-        /* Alternância de temas interativos no bloco lateral */
-        .rotating-box {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        /* Bloco Fixo de Espaço Publicitário "Anuncie Aqui" */
+        .ad-space-box {
+            background: rgba(0, 0, 0, 0.75);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            min-height: 140px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             backdrop-filter: blur(6px);
-            animation: fadeInOut 6s infinite;
         }
-        .rotating-icon { font-size: 2.5rem; margin-bottom: 0.4rem; }
-        .rotating-title { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.2rem; }
-        .rotating-desc { font-size: 0.85rem; color: #adb5bd; }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(5px); }
-            10% { opacity: 1; transform: translateY(0); }
-            33% { opacity: 1; transform: translateY(0); }
-            43% { opacity: 0; transform: translateY(-5px); }
-            100% { opacity: 0; transform: translateY(-5px); }
-        }
+        .ad-space-icon { font-size: 2.5rem; margin-bottom: 0.4rem; }
+        .ad-space-title { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+        .ad-space-desc { font-size: 0.85rem; color: #adb5bd; margin-bottom: 1rem; }
 
         h2 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--text-main); font-weight: 700; text-align: center; }
 
@@ -153,6 +143,9 @@
         .btn-secondary:hover { background: #343a40; }
         .btn-whatsapp { background: #2b8a3e; color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: 100%; }
         .btn-whatsapp:hover { opacity: 0.9; }
+        
+        .btn-facebook { background: #1877f2; color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: 100%; text-decoration: none; padding: 0.4rem; border-radius: 4px; font-weight: 500; font-size: 0.75rem; }
+        .btn-facebook:hover { opacity: 0.9; }
 
         .badge { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.65rem; border-radius: 4px; background: #e9ecef; color: var(--text-main); margin-bottom: 0.3rem; font-weight: 600; }
 
@@ -216,33 +209,12 @@
         function closePopup() {
             document.getElementById('welcomePopup').style.display = 'none';
         }
-
-        // Script simples para alternar temas no container lateral do Hero
-        const rotatingData = [
-            { icon: "👔", title: "Empregos", desc: "Oportunidades e vagas locais" },
-            { icon: "🐕", title: "Animais Perdidos", desc: "Ajuda para encontrar pets na região" },
-            { icon: "🛒", title: "Comércio Local", desc: "Valorizando os parceiros de bairro" },
-            { icon: "⚽", title: "Esporte & Várzea", desc: "Campeonatos e integração comunitária" }
-        ];
-
-        let currentIndex = 0;
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % rotatingData.length;
-            const iconEl = document.getElementById("rot-icon");
-            const titleEl = document.getElementById("rot-title");
-            const descEl = document.getElementById("rot-desc");
-            if(iconEl && titleEl && descEl) {
-                iconEl.innerText = rotatingData[currentIndex].icon;
-                titleEl.innerText = rotatingData[currentIndex].title;
-                descEl.innerText = rotatingData[currentIndex].desc;
-            }
-        }, 4000);
     </script>
 
     <!-- Container Central Branco Lado a Lado (Expandido) com Bordas Pretas -->
     <div class="main-container">
 
-        <!-- Seção 1: Hero Inicial Humanizado (Lado a Lado no Desktop) -->
+        <!-- Seção 1: Hero Inicial Humanizado (Lado a Lado no Desktop com Espaço Publicitário Fixo "Anuncie Aqui") -->
         <section class="hero-section" id="inicio">
             <div class="hero-grid">
                 <div class="hero-text">
@@ -261,13 +233,42 @@
                     </div>
                 </div>
 
-                <!-- Container Lateral Alternando Temas -->
+                <!-- Espaço Publicitário Fixo "Anuncie Aqui" -->
                 <div class="hero-sidebar">
-                    <div class="rotating-box" id="rotatingBox">
-                        <div class="rotating-icon" id="rot-icon">👔</div>
-                        <div class="rotating-title" id="rot-title">Empregos</div>
-                        <div class="rotating-desc" id="rot-desc">Oportunidades e vagas locais</div>
+                    <div class="ad-space-box">
+                        <div class="ad-space-icon">📢</div>
+                        <div class="ad-space-title">Anuncie Aqui</div>
+                        <div class="ad-space-desc">Divulgue seu comércio ou serviço para toda São Leopoldo.</div>
+                        <a href="https://wa.me/5551991795608?text=Quero%20anunciar%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="padding: 0.5rem 1rem; font-size: 0.8rem;">💬 Entrar em Contato</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Grupos da Comunidade (WhatsApp e Facebook) -->
+        <section id="grupos">
+            <h2>Grupos da Comunidade</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 1.2rem;">Participe e fique por dentro de tudo o que acontece em nossa região.</p>
+            
+            <div class="grid-2">
+                <!-- Grupo de WhatsApp -->
+                <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="badge" style="background: #ebfbee; color: #2b8a3e;">WhatsApp</span>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--text-main);">Grupo Oficial R11 / Comunidade</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Troca de informações, avisos rápidos e interação direta entre os moradores.</p>
+                    </div>
+                    <a href="https://chat.whatsapp.com/BDW9iMkGsOCFCKWz3P7Duw?s=cl&p=a&ilr=4" class="btn btn-whatsapp" target="_blank">💬 Entrar no Grupo de WhatsApp</a>
+                </div>
+
+                <!-- Grupo de Facebook -->
+                <div class="card" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="badge" style="background: #e7f5ff; color: #1877f2;">Facebook</span>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.4rem; color: var(--text-main);">Comunidade R11 no Facebook</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Debates, fotos de mutirões e engajamento com a rede de apoio local.</p>
+                    </div>
+                    <a href="https://www.facebook.com/share/g/1ELca69fDp/" class="btn-facebook" target="_blank">👥 Participar do Grupo no Facebook</a>
                 </div>
             </div>
         </section>
@@ -612,9 +613,9 @@
     <!-- Barra de Navegação Inferior Mobile -->
     <nav class="bottom-nav">
         <a href="#inicio" class="active"><span>🏠</span>Início</a>
+        <a href="#grupos"><span>👥</span>Grupos</a>
         <a href="#feed"><span>📰</span>Feed</a>
         <a href="#mural"><span>📋</span>Mural</a>
-        <a href="#varzea"><span>⚽</span>Várzea</a>
         <a href="#comercio"><span>🛒</span>Comércio</a>
     </nav>
 
