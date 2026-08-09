@@ -8,15 +8,16 @@
         :root {
             --primary: #c92a2a;
             --primary-dark: #a61e1e;
-            --bg-main: #141619;
-            --bg-card: #1e2229;
-            --text-main: #f1f3f5;
-            --text-muted: #adb5bd;
-            --border-color: #2c3038;
+            --bg-page: #0a0c0e; /* Fundo geral preto */
+            --bg-container: #ffffff; /* Container central branco */
+            --bg-card: #ffffff; /* Cards internos brancos */
+            --text-main: #212529; /* Textos pretos/escuros para legibilidade */
+            --text-muted: #6c757d;
+            --border-color: #dee2e6;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background: var(--bg-main); color: var(--text-main); line-height: 1.5; padding-bottom: 70px; scroll-behavior: smooth; }
+        body { background: var(--bg-page); color: var(--text-main); line-height: 1.5; padding-bottom: 70px; scroll-behavior: smooth; }
 
         /* Pop-up de Boas-Vindas */
         .popup-overlay {
@@ -25,13 +26,13 @@
             display: flex; justify-content: center; align-items: center; padding: 1rem;
         }
         .popup-content {
-            background: var(--bg-card); border: 1px solid var(--border-color);
+            background: #1e2229; border: 1px solid #2c3038;
             padding: 1.5rem; border-radius: 12px; text-align: center; max-width: 480px; width: 100%;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-height: 95vh; overflow-y: auto;
-            display: flex; flex-direction: column; align-items: center;
+            display: flex; flex-direction: column; align-items: center; color: #f1f3f5;
         }
-        .popup-content h2 { color: var(--text-main); margin-bottom: 0.4rem; font-size: 1.4rem; font-weight: 600; }
-        .popup-content p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.85rem; }
+        .popup-content h2 { color: #f1f3f5; margin-bottom: 0.4rem; font-size: 1.4rem; font-weight: 600; }
+        .popup-content p { color: #adb5bd; margin-bottom: 1rem; font-size: 0.85rem; }
         
         .popup-video-wrapper { 
             width: 100%; max-width: 400px; aspect-ratio: 16/9; background: #000; 
@@ -40,30 +41,37 @@
         }
         .popup-video-wrapper iframe { width: 100%; height: 100%; border: none; }
 
+        /* Estrutura central com fundo branco e margens pretas */
+        .main-container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg-container);
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+        }
+
         section { 
-            max-width: 800px; margin: 0 auto; 
-            padding: 2rem 1.2rem; display: flex; flex-direction: column; justify-content: center; 
+            padding: 2.5rem 1.5rem; display: flex; flex-direction: column; justify-content: center; 
             border-bottom: 1px solid var(--border-color);
         }
 
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.85)), url('assets/praca.jpg');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('assets/praca.jpg');
             background-size: cover; background-position: center;
-            color: #ffffff; text-align: center; padding: 2.5rem 1rem;
+            color: #ffffff; text-align: center; padding: 3rem 1.5rem;
         }
         .header-logo { width: 90px; margin-bottom: 0.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
-        .hero-section h1 { font-size: 2rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.5px; }
+        .hero-section h1 { font-size: 2rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
 
         .bullet-list {
             list-style: none; text-align: left; max-width: 420px; margin: 0 auto 1.2rem auto;
-            background: rgba(255, 255, 255, 0.05); padding: 1rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.1); padding: 1rem 1.2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);
         }
         .bullet-list li {
-            margin-bottom: 0.5rem; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; color: var(--text-main);
+            margin-bottom: 0.5rem; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; color: #fff;
         }
         .bullet-list li:last-child { margin-bottom: 0; }
 
-        h2 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 600; text-align: center; }
+        h2 { font-size: 1.5rem; margin-bottom: 1.2rem; color: var(--text-main); font-weight: 700; text-align: center; }
 
         .carousel-container {
             display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -74,11 +82,11 @@
         .card-item {
             min-width: 280px; max-width: 320px; flex: 0 0 auto; scroll-snap-align: start;
             background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px;
-            padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: flex; flex-direction: column; justify-content: space-between;
+            padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between;
         }
 
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; width: 100%; }
-        .card { background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
+        .card { background: var(--bg-card); padding: 1.2rem; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 
         .btn-container { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
         .btn { 
@@ -87,27 +95,36 @@
             transition: background 0.2s; display: inline-block; border: none; cursor: pointer; text-align: center;
         }
         .btn:hover { background: var(--primary-dark); }
-        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
-        .btn-outline:hover { background: rgba(255,255,255,0.05); }
-        .btn-secondary { background: #343a40; color: #fff; }
-        .btn-secondary:hover { background: #495057; }
+        .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.6); color: #fff; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); }
+        .btn-secondary { background: #495057; color: #fff; }
+        .btn-secondary:hover { background: #343a40; }
         .btn-whatsapp { background: #2b8a3e; color: #fff; display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: 100%; }
         .btn-whatsapp:hover { opacity: 0.9; }
 
-        .badge { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.65rem; border-radius: 4px; background: #2c3038; color: var(--text-main); margin-bottom: 0.3rem; font-weight: 500; }
+        .badge { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.65rem; border-radius: 4px; background: #e9ecef; color: var(--text-main); margin-bottom: 0.3rem; font-weight: 600; }
 
-        .post-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); width: 100%; max-width: 480px; margin: 0 auto; }
-        .post-img { width: 100%; max-height: 240px; object-fit: cover; }
+        /* Feed Post Carrossel com Título, Subtítulo e Explicação */
+        .post-card { 
+            background: var(--bg-card); border-radius: 8px; overflow: hidden; 
+            border: 1px solid var(--border-color); min-width: 280px; max-width: 340px; 
+            flex: 0 0 auto; scroll-snap-align: start; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .post-img { width: 100%; height: 200px; object-fit: cover; }
         .post-content { padding: 1rem; text-align: left; }
+        .post-content h3 { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
+        .post-subtitle { font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
+        .post-text { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.8rem; }
 
         .match-details { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.4rem; }
         .spotify-box { display: flex; justify-content: center; margin-top: 1rem; width: 100%; }
 
         /* Barra de Navegação Inferior Mobile */
         .bottom-nav {
-            position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-card); 
+            position: fixed; bottom: 0; left: 0; width: 100%; background: #ffffff; 
             border-top: 1px solid var(--border-color); display: flex; justify-content: space-around; 
-            align-items: center; padding: 0.4rem; z-index: 999;
+            align-items: center; padding: 0.4rem; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         }
         .bottom-nav a {
             color: var(--text-muted); text-decoration: none; font-size: 0.7rem; text-align: center;
@@ -122,9 +139,9 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; gap: 6px; font-size: 0.8rem;
         }
 
-        footer { background: #0f1113; color: var(--text-muted); text-align: center; padding: 1.5rem 1rem; border-top: 1px solid var(--border-color); margin-bottom: 50px; }
+        footer { background: #141619; color: #adb5bd; text-align: center; padding: 1.5rem 1rem; border-top: 1px solid var(--border-color); margin-bottom: 50px; }
         .social-links { margin-bottom: 0.5rem; font-size: 0.85rem; }
-        .social-links a { color: var(--text-main); margin: 0 6px; text-decoration: none; }
+        .social-links a { color: #fff; margin: 0 6px; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -149,231 +166,362 @@
         }
     </script>
 
-    <!-- Seção 1: Hero Inicial Humanizado -->
-    <section class="hero-section" id="inicio">
-        <img src="assets/logo-r11.png" alt="Logotipo R11" class="header-logo">
-        <h1>R11 – Juntos Somos +</h1>
-        
-        <ul class="bullet-list">
-            <li>⚡ <strong>Ações Sociais:</strong> Apoio direto a famílias e crianças.</li>
-            <li>🌱 <strong>Cuidando da Cidade:</strong> Zeladoria e melhoria de praças.</li>
-            <li>🤝 <strong>Comunidade:</strong> Valorização do comércio e união local.</li>
-        </ul>
+    <!-- Container Central Branco com Bordas Pretas nas Laterais -->
+    <div class="main-container">
 
-        <div class="btn-container">
-            <a href="https://wa.me/5551991795608?text=Quero%20apoiar%20o%20projeto%20R11" class="btn btn-secondary" target="_blank">Apoiar Projeto</a>
-            <a href="#feed" class="btn btn-outline">Ver Ações</a>
-        </div>
-    </section>
+        <!-- Seção 1: Hero Inicial Humanizado (Mantém fundo escuro harmonioso dentro do container branco) -->
+        <section class="hero-section" id="inicio">
+            <img src="assets/logo-r11.png" alt="Logotipo R11" class="header-logo">
+            <h1 style="color: #fff;">R11 – Juntos Somos +</h1>
+            
+            <ul class="bullet-list">
+                <li>⚡ <strong>Ações Sociais:</strong> Apoio direto a famílias e crianças.</li>
+                <li>🌱 <strong>Cuidando da Cidade:</strong> Zeladoria e melhoria de praças.</li>
+                <li>🤝 <strong>Comunidade:</strong> Valorização do comércio e união local.</li>
+            </ul>
 
-    <!-- Seção 2: Feed e Ações em Destaque -->
-    <section id="feed">
-        <h2>Feed de Ações</h2>
-        <div class="post-card">
-            <img src="assets/acao-voluntaria.jpg" alt="Voluntário revitalizando área" class="post-img">
-            <div class="post-content">
-                <span class="badge">Ação Recente</span>
-                <h3 style="margin: 0.3rem 0; font-size: 1rem; font-weight: 600;">Mão na Massa em São Leopoldo</h3>
-                <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.8rem;">Trabalho voluntário de revitalização e cuidado com os espaços públicos da nossa cidade.</p>
-                <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.75rem; padding: 0.4rem;">💬 Saiba mais no WhatsApp</a>
+            <div class="btn-container">
+                <a href="https://wa.me/5551991795608?text=Quero%20apoiar%20o%20projeto%20R11" class="btn btn-secondary" target="_blank">Apoiar Projeto</a>
+                <a href="#feed" class="btn btn-outline">Ver Ações</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Seção 3: Mural de Ações (Carrossel) -->
-    <section id="mural">
-        <h2>Mural de Ações</h2>
-        <div class="carousel-container">
-            <div class="card-item">
-                <div>
-                    <span class="badge" style="background: #3b2b1e; color: #f59f00;">Em Andamento</span>
-                    <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Praça Rio dos Sinos</h4>
-                    <p style="font-size: 0.75rem; color: var(--text-muted);">Mutirão de roçada e pintura de meios-fios.</p>
-                </div>
-                <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 15/08/2026</p>
-            </div>
-
-            <div class="card-item">
-                <div>
-                    <span class="badge" style="background: #1b2e3b; color: #228be6;">Planejado</span>
-                    <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Revitalização Pública</h4>
-                    <p style="font-size: 0.75rem; color: var(--text-muted);">Pintura de bancos e plantio de mudas locais.</p>
-                </div>
-                <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 22/08/2026</p>
-            </div>
-
-            <div class="card-item">
-                <div>
-                    <span class="badge" style="background: #1e3b22; color: #40c057;">Confirmado</span>
-                    <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Campanha de Inverno</h4>
-                    <p style="font-size: 0.75rem; color: var(--text-muted);">Arrecadação e distribuição de agasalhos.</p>
-                </div>
-                <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 30/08/2026</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção 4: Campeonato da Várzea -->
-    <section id="varzea">
-        <h2>Campeonato da Várzea</h2>
-        <div class="carousel-container">
-            <div class="card-item">
-                <div>
-                    <span class="badge" style="background: #2c3038; color: #adb5bd;">Encerrado</span>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
-                        <div style="text-align: center; width: 40%;">
-                            <img src="assets/logo-time1.jpg" alt="Time 1" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
-                            <p style="font-size: 0.75rem;">Leopoldense</p>
-                        </div>
-                        <span style="font-weight: bold; font-size: 1rem; color: var(--primary);">2 x 1</span>
-                        <div style="text-align: center; width: 40%;">
-                            <img src="assets/logo-time2.jpg" alt="Time 2" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
-                            <p style="font-size: 0.75rem;">União Vila</p>
-                        </div>
-                    </div>
-                    <div class="match-details">
-                        <p>⚽ Gols: Carlos (15' 1T), João (30' 2T) - Leo / Pedro (42' 2T) - UV</p>
-                        <p>🟨 Cartões: 2 Amarelos | 🟥 0 Vermelhos</p>
-                        <p>👥 Público: Aprox. 250 pessoas</p>
+        <!-- Seção 2: Feed de Ações em Carrossel (feed-1.jpg até feed-11.jpg) -->
+        <section id="feed">
+            <h2>Feed de Ações Sociais</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 1rem;">Arraste para o lado para conferir nossos registros</p>
+            
+            <div class="carousel-container">
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <img src="assets/feed-1.jpg" alt="Ação 1" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Ação Comunitária</span>
+                        <h3>Mutirão de Limpeza</h3>
+                        <p class="post-subtitle">Zeladoria e Cuidado Urbano</p>
+                        <p class="post-text">Nossa equipe nas ruas realizou a limpeza e roçada de áreas públicas, devolvendo espaço limpo e seguro para os moradores.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
                     </div>
                 </div>
-                <p style="font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">Campo do Morro</p>
-            </div>
 
-            <div class="card-item">
-                <div>
-                    <span class="badge" style="background: #1e3b22; color: #40c057;">Próxima Partida</span>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
-                        <div style="text-align: center; width: 40%;">
-                            <img src="assets/logo-time3.png" alt="Time 3" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
-                            <p style="font-size: 0.75rem;">Amigos F.C.</p>
-                        </div>
-                        <span style="font-weight: bold; font-size: 0.9rem; color: var(--text-main);">VS</span>
-                        <div style="text-align: center; width: 40%;">
-                            <img src="assets/logo-time4.jpg" alt="Time 4" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
-                            <p style="font-size: 0.75rem;">R11 Esporte</p>
-                        </div>
-                    </div>
-                    <div class="match-details">
-                        <p>📅 Sábado, às 16:00</p>
-                        <p>📍 Local: Campo Municipal de São Leopoldo</p>
+                <!-- Post 2 -->
+                <div class="post-card">
+                    <img src="assets/feed-2.jpg" alt="Ação 2" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Solidariedade</span>
+                        <h3>Apoio às Famílias</h3>
+                        <p class="post-subtitle">Distribuição de Alimentos</p>
+                        <p class="post-text">Entrega de cestas básicas e mantimentos essenciais para famílias em situação de vulnerabilidade na região.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
                     </div>
                 </div>
-                <p style="font-size: 0.7rem; color: var(--primary); text-align: center; font-weight: 500; margin-top: 0.5rem;">Partida Oficial do Torneio</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Seção 5: Comércio Local, Parceiros e Anúncios/Encartes -->
-    <section id="comercio">
-        <h2>Comércio Local e Anúncios</h2>
-        <div class="carousel-container">
-            <!-- Fruteira com Encarte -->
-            <div class="card-item" style="min-width: 280px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
-                    <img src="assets/logo-fruteira.jpg" alt="Logo Fruteira" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                <!-- Post 3 -->
+                <div class="post-card">
+                    <img src="assets/feed-3.jpg" alt="Ação 3" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Espaços Públicos</span>
+                        <h3>Revitalização de Praças</h3>
+                        <p class="post-subtitle">Praças Vivas e Iluminadas</p>
+                        <p class="post-text">Pintura de bancos, poda de árvores e melhorias estruturais para garantir lazer de qualidade para as crianças.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="post-card">
+                    <img src="assets/feed-4.jpg" alt="Ação 4" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Esporte Social</span>
+                        <h3>Futebol Comunitário</h3>
+                        <p class="post-subtitle">Integração através do Esporte</p>
+                        <p class="post-text">Apoio a torneios locais e campeonatos de várzea que fortalecem os laços de união entre os bairros.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="post-card">
+                    <img src="assets/feed-5.jpg" alt="Ação 5" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Campanha Social</span>
+                        <h3>Aquecimento Solidário</h3>
+                        <p class="post-subtitle">Doação de Agasalhos</p>
+                        <p class="post-text">Arrecadação e distribuição de roupas de frio e cobertores para enfrentar as baixas temperaturas com dignidade.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="post-card">
+                    <img src="assets/feed-6.jpg" alt="Ação 6" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Educação e Futuro</span>
+                        <h3>Apoio às Crianças</h3>
+                        <p class="post-subtitle">Ações em Datas Especiais</p>
+                        <p class="post-text">Eventos comunitários voltados para o público infantil, promovendo momentos de lazer, alegria e união.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 7 -->
+                <div class="post-card">
+                    <img src="assets/feed-7.jpg" alt="Ação 7" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Comunidade Ativa</span>
+                        <h3>Reuniões com Líderes</h3>
+                        <p class="post-subtitle">Ouvindo os Bairros</p>
+                        <p class="post-text">Diálogo aberto com moradores e lideranças comunitárias para mapear as principais necessidades de cada rua.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 8 -->
+                <div class="post-card">
+                    <img src="assets/feed-8.jpg" alt="Ação 8" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Saúde e Bem-Estar</span>
+                        <h3>Auxílio Médico</h3>
+                        <p class="post-subtitle">Banco de Equipamentos</p>
+                        <p class="post-text">Empréstimo solidário de camas hospitalares, cadeiras de rodas e itens de apoio para quem mais precisa.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 9 -->
+                <div class="post-card">
+                    <img src="assets/feed-9.jpg" alt="Ação 9" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Zeladoria</span>
+                        <h3>Manutenção Urbana</h3>
+                        <p class="post-subtitle">Ruas Mais Seguras</p>
+                        <p class="post-text">Trabalho contínuo de melhoria estética e funcional dos passeios públicos e vias de circulação.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 10 -->
+                <div class="post-card">
+                    <img src="assets/feed-10.jpg" alt="Ação 10" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">Parceria Local</span>
+                        <h3>Valorização do Comércio</h3>
+                        <p class="post-subtitle">Força aos Empreendedores</p>
+                        <p class="post-text">Incentivo ao consumo local e divulgação gratuita dos pequenos negócios e serviços de bairro.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+
+                <!-- Post 11 -->
+                <div class="post-card">
+                    <img src="assets/feed-11.jpg" alt="Ação 11" class="post-img">
+                    <div class="post-content">
+                        <span class="badge">União</span>
+                        <h3>Movimento R11</h3>
+                        <p class="post-subtitle">Juntos Somos Mais</p>
+                        <p class="post-text">Registro especial da nossa união e da força coletiva que transforma a realidade de São Leopoldo todos os dias.</p>
+                        <a href="https://wa.me/5551991795608" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Fale Conosco</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Mural de Ações -->
+        <section id="mural">
+            <h2>Mural de Ações</h2>
+            <div class="carousel-container">
+                <div class="card-item">
                     <div>
-                        <h4 style="font-size: 0.85rem;">Fruteira Bom Preço</h4>
-                        <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
+                        <span class="badge" style="background: #fff3bf; color: #856404;">Em Andamento</span>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem; color: var(--text-main);">Praça Rio dos Sinos</h4>
+                        <p style="font-size: 0.75rem; color: var(--text-muted);">Mutirão de roçada e pintura de meios-fios.</p>
                     </div>
+                    <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 15/08/2026</p>
                 </div>
-                <img src="assets/enc-fruteira.jpg" alt="Encarte Fruteira" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Seg a Sáb: 08h às 19h</p>
-                <a href="https://wa.me/5551988881111?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 WhatsApp</a>
-            </div>
 
-            <!-- Lanches / Promoção (trab-4.jpg) -->
-            <div class="card-item" style="min-width: 280px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
-                    <img src="assets/logo-lanches.jpg" alt="Logo Lanches" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                <div class="card-item">
                     <div>
-                        <h4 style="font-size: 0.85rem;">Lanches & Cia (Promoção)</h4>
-                        <span style="font-size: 0.6rem; color: var(--text-muted);">Destaque R11</span>
+                        <span class="badge" style="background: #e3fafc; color: #0b7285;">Planejado</span>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem; color: var(--text-main);">Revitalização Pública</h4>
+                        <p style="font-size: 0.75rem; color: var(--text-muted);">Pintura de bancos e plantio de mudas locais.</p>
                     </div>
+                    <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 22/08/2026</p>
                 </div>
-                <img src="assets/trab-4.jpg" alt="Anúncio Promoção Lanche" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Ter a Dom: 18h às 23h</p>
-                <a href="https://wa.me/5551977772222?text=Olá,%20vi%20a%20promoção%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Pedir Lanche</a>
-            </div>
 
-            <!-- Encarte Lanche Tradicional -->
-            <div class="card-item" style="min-width: 280px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
-                    <img src="assets/logo-lanches.jpg" alt="Logo Lanches" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                <div class="card-item">
                     <div>
-                        <h4 style="font-size: 0.85rem;">Lanches & Cia</h4>
-                        <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
+                        <span class="badge" style="background: #ebfbee; color: #2b8a3e;">Confirmado</span>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.2rem; color: var(--text-main);">Campanha de Inverno</h4>
+                        <p style="font-size: 0.75rem; color: var(--text-muted);">Arrecadação e distribuição de agasalhos.</p>
                     </div>
+                    <p style="font-weight: 500; font-size: 0.7rem; margin-top: 0.8rem; color: var(--text-muted);">📅 30/08/2026</p>
                 </div>
-                <img src="assets/enc-lanches.jpg" alt="Encarte Lanche" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Ter a Dom: 18h às 23h</p>
-                <a href="https://wa.me/5551977772222?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 WhatsApp</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Seção 6: Profissionais Autônomos e Serviços (trab-1, trab-2, trab-3) -->
-    <section id="profissionais">
-        <h2>Profissionais e Prestadores</h2>
-        <div class="carousel-container">
-            <!-- Motorista Particular (trab-1.jpg) -->
-            <div class="card-item" style="min-width: 280px;">
-                <div>
-                    <span class="badge" style="background: #2c3038; color: #ffb703;">Mobilidade</span>
-                    <h4 style="font-size: 0.9rem; margin-bottom: 0.3rem;">Carlos Silva - Motorista</h4>
-                    <img src="assets/trab-1.jpg" alt="Motorista Particular" style="width: 100%; border-radius: 4px; max-height: 140px; object-fit: cover; margin-bottom: 0.5rem;">
-                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">Viagens, aeroporto e compromissos com segurança.</p>
+        <!-- Seção 4: Campeonato da Várzea -->
+        <section id="varzea">
+            <h2>Campeonato da Várzea</h2>
+            <div class="carousel-container">
+                <div class="card-item">
+                    <div>
+                        <span class="badge" style="background: #e9ecef; color: #495057;">Encerrado</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time1.png" alt="Time 1" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.75rem; color: var(--text-main);">Leopoldense</p>
+                            </div>
+                            <span style="font-weight: bold; font-size: 1rem; color: var(--primary);">2 x 1</span>
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time2.png" alt="Time 2" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.75rem; color: var(--text-main);">União Vila</p>
+                            </div>
+                        </div>
+                        <div class="match-details">
+                            <p>⚽ Gols: Carlos (15' 1T), João (30' 2T) - Leo / Pedro (42' 2T) - UV</p>
+                            <p>🟨 Cartões: 2 Amarelos | 🟥 0 Vermelhos</p>
+                            <p>👥 Público: Aprox. 250 pessoas</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">Campo do Morro</p>
                 </div>
-                <a href="https://wa.me/5551966663333?text=Olá%20Carlos,%20vi%20seu%20anúncio%20no%20site%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Chamar Motorista</a>
-            </div>
 
-            <!-- Corretora de Imóveis (trab-2.jpg) -->
-            <div class="card-item" style="min-width: 280px;">
-                <div>
-                    <span class="badge" style="background: #2c3038; color: #e63946;">Imóveis</span>
-                    <h4 style="font-size: 0.9rem; margin-bottom: 0.3rem;">Ana Souza - Corretora</h4>
-                    <img src="assets/trab-2.jpg" alt="Corretora de Imóveis" style="width: 100%; border-radius: 4px; max-height: 140px; object-fit: cover; margin-bottom: 0.5rem;">
-                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">Compra, venda e aluguel de residências e terrenos.</p>
+                <div class="card-item">
+                    <div>
+                        <span class="badge" style="background: #ebfbee; color: #2b8a3e;">Próxima Partida</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time3.png" alt="Time 3" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.75rem; color: var(--text-main);">Amigos F.C.</p>
+                            </div>
+                            <span style="font-weight: bold; font-size: 0.9rem; color: var(--text-main);">VS</span>
+                            <div style="text-align: center; width: 40%;">
+                                <img src="assets/logo-time4.png" alt="Time 4" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                                <p style="font-size: 0.75rem; color: var(--text-main);">R11 Esporte</p>
+                            </div>
+                        </div>
+                        <div class="match-details">
+                            <p>📅 Sábado, às 16:00</p>
+                            <p>📍 Local: Campo Municipal de São Leopoldo</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--primary); text-align: center; font-weight: 500; margin-top: 0.5rem;">Partida Oficial do Torneio</p>
                 </div>
-                <a href="https://wa.me/5551955554444?text=Olá%20Ana,%20vi%20seu%20anúncio%20no%20site%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Falar com Corretora</a>
             </div>
+        </section>
 
-            <!-- Limpador de Pátio / Zeladoria (trab-3.jpg) -->
-            <div class="card-item" style="min-width: 280px;">
-                <div>
-                    <span class="badge" style="background: #2c3038; color: #40c057;">Serviço Geral</span>
-                    <h4 style="font-size: 0.9rem; margin-bottom: 0.3rem;">Limpeza e Pátio</h4>
-                    <img src="assets/trab-3.jpg" alt="Limpador de Pátio" style="width: 100%; border-radius: 4px; max-height: 140px; object-fit: cover; margin-bottom: 0.5rem;">
-                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">Limpeza de pátios, roçada e organização geral.</p>
+        <!-- Seção 5: Comércio Local e Anúncios -->
+        <section id="comercio">
+            <h2>Comércio Local e Anúncios</h2>
+            <div class="carousel-container">
+                <!-- Fruteira com Encarte -->
+                <div class="card-item" style="min-width: 280px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                        <img src="assets/logo-fruteira.jpg" alt="Logo Fruteira" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="font-size: 0.85rem; color: var(--text-main);">Fruteira Bom Preço</h4>
+                            <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
+                        </div>
+                    </div>
+                    <img src="assets/enc-fruteira.png" alt="Encarte Fruteira" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Seg a Sáb: 08h às 19h</p>
+                    <a href="https://wa.me/5551988881111?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 WhatsApp</a>
                 </div>
-                <a href="https://wa.me/5551944445555?text=Olá,%20vi%20o%20anúncio%20de%20limpeza%20no%20site%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Contratar Serviço</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Seção 7: Comunidade (Vagas e Doações) e Nova Playlist Spotify -->
-    <section id="comunidade">
-        <h2>Comunidade e Ajuda</h2>
-        <div class="grid-2" style="margin-bottom: 1.5rem;">
-            <div class="card">
-                <span class="badge">Doações</span>
-                <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Cama Hospitalar / Cadeira</h4>
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">Buscamos empréstimo ou doação para famílias.</p>
-                <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação" class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.3rem; width: 100%;">Informar Doação</a>
-            </div>
-            <div class="card">
-                <span class="badge">Vagas / Serviços</span>
-                <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem;">Zelador / Ajudante</h4>
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">Oportunidades locais e banco de talentos.</p>
-                <a href="https://wa.me/5551991795608?text=Quero%20enviar%20currículo" class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.3rem; width: 100%;">Enviar Currículo</a>
-            </div>
-        </div>
+                <!-- Lanches / Promoção (trab-4.jpg) -->
+                <div class="card-item" style="min-width: 280px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                        <img src="assets/logo-lanches.jpg" alt="Logo Lanches" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="font-size: 0.85rem; color: var(--text-main);">Lanches & Cia (Promoção)</h4>
+                            <span style="font-size: 0.6rem; color: var(--text-muted);">Destaque R11</span>
+                        </div>
+                    </div>
+                    <img src="assets/trab-4.jpg" alt="Anúncio Promoção Lanche" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Ter a Dom: 18h às 23h</p>
+                    <a href="https://wa.me/5551977772222?text=Olá,%20vi%20a%20promoção%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Pedir Lanche</a>
+                </div>
 
-        <!-- Nova Playlist do Spotify Adicionada -->
-        <div class="spotify-box">
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3MviEGYE6guX0NwABZyiRM?si=gS5U_oq-TPCGWHS9dYBPdw" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-    </section>
+                <!-- Encarte Lanche Tradicional -->
+                <div class="card-item" style="min-width: 280px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                        <img src="assets/logo-lanches.jpg" alt="Logo Lanches" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="font-size: 0.85rem; color: var(--text-main);">Lanches & Cia</h4>
+                            <span style="font-size: 0.6rem; color: var(--text-muted);">Parceiro R11</span>
+                        </div>
+                    </div>
+                    <img src="assets/enc-lanche.png" alt="Encarte Lanche" style="width: 100%; border-radius: 4px; max-height: 150px; object-fit: cover; margin-bottom: 0.5rem;">
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem;">🕒 Ter a Dom: 18h às 23h</p>
+                    <a href="https://wa.me/5551977772222?text=Olá,%20vi%20seu%20anúncio%20no%20site%20da%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6: Profissionais Autônomos e Serviços -->
+        <section id="profissionais">
+            <h2>Profissionais e Prestadores</h2>
+            <div class="carousel-container">
+                <!-- Motorista Particular (trab-1.jpg) -->
+                <div class="card-item" style="min-width: 280px;">
+                    <div>
+                        <span class="badge" style="background: #fff3bf; color: #856404;">Mobilidade</span>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--text-main);">Carlos Silva - Motorista</h4>
+                        <img src="assets/trab-1.jpg" alt="Motorista Particular" style="width: 100%; border-radius: 4px; max-height: 140px; object-fit: cover; margin-bottom: 0.5rem;">
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">Viagens, aeroporto e compromissos com segurança.</p>
+                    </div>
+                    <a href="https://wa.me/5551966663333?text=Olá%20Carlos,%20vi%20seu%20anúncio%20no%20site%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Chamar Motorista</a>
+                </div>
+
+                <!-- Corretora de Imóveis (trab-2.jpg) -->
+                <div class="card-item" style="min-width: 280px;">
+                    <div>
+                        <span class="badge" style="background: #fff5f5; color: #c92a2a;">Imóveis</span>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--text-main);">Ana Souza - Corretora</h4>
+                        <img src="assets/trab-2.jpg" alt="Corretora de Imóveis" style="width: 100%; border-radius: 4px; max-height: 140px; object-fit: cover; margin-bottom: 0.5rem;">
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">Compra, venda e aluguel de residências e terrenos.</p>
+                    </div>
+                    <a href="https://wa.me/5551955554444?text=Olá%20Ana,%20vi%20seu%20anúncio%20no%20site%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Falar com Corretora</a>
+                </div>
+
+                <!-- Limpador de Pátio / Zeladoria (trab-3.jpg) -->
+                <div class="card-item" style="min-width: 280px;">
+                    <div>
+                        <span class="badge" style="background: #ebfbee; color: #2b8a3e;">Serviço Geral</span>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--text-main);">Limpeza e Pátio</h4>
+                        <img src="assets/trab-3.jpg" alt="Limpador de Pátio" style="width: 100%; border-radius: 4px; max-height: 140px; object-fit: cover; margin-bottom: 0.5rem;">
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">Limpeza de pátios, roçada e organização geral.</p>
+                    </div>
+                    <a href="https://wa.me/5551944445555?text=Olá,%20vi%20o%20anúncio%20de%20limpeza%20no%20site%20R11" class="btn btn-whatsapp" target="_blank" style="font-size: 0.7rem; padding: 0.3rem;">💬 Contratar Serviço</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 7: Comunidade e Playlist Spotify -->
+        <section id="comunidade">
+            <h2>Comunidade e Ajuda</h2>
+            <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div class="card">
+                    <span class="badge">Doações</span>
+                    <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem; color: var(--text-main);">Cama Hospitalar / Cadeira</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">Buscamos empréstimo ou doação para famílias.</p>
+                    <a href="https://wa.me/5551991795608?text=Quero%20ajudar%20com%20doação" class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.3rem; width: 100%;">Informar Doação</a>
+                </div>
+                <div class="card">
+                    <span class="badge">Vagas / Serviços</span>
+                    <h4 style="font-size: 0.9rem; margin-bottom: 0.2rem; color: var(--text-main);">Zelador / Ajudante</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">Oportunidades locais e banco de talentos.</p>
+                    <a href="https://wa.me/5551991795608?text=Quero%20enviar%20currículo" class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.3rem; width: 100%;">Enviar Currículo</a>
+                </div>
+            </div>
+
+            <!-- Playlist Spotify -->
+            <div class="spotify-box">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3MviEGYE6guX0NwABZyiRM?si=gS5U_oq-TPCGWHS9dYBPdw" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </section>
+
+    </div><!-- Fim do Container Central Branco -->
 
     <!-- Barra de Navegação Inferior Mobile -->
     <nav class="bottom-nav">
